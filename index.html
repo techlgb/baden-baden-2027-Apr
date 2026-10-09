@@ -570,7 +570,7 @@ function dayButtons(day){
   if(loop){const via=R.seq.slice(1,-1).map(tgt);
     b.push(HOME()?`<a class="btn" href="${dirUrl({origin:HOME(),dest:HOME(),wps:via})}" target="_blank" rel="noopener">整天路線（從民宿出發、回民宿）</a>`
       :`<a class="btn" href="${dirUrl({dest:via[via.length-1],wps:via.slice(0,-1)})}" target="_blank" rel="noopener">整天路線（從目前位置出發）</a>`);}
-  if(HOME()) b.push(`<a class="btn alt" href="${dirUrl({dest:HOME(),mode:day.e.mode==='transit'?'transit':'driving'})}" target="_blank" rel="noopener">導航回民宿</a>`);
+  if(HOME()&&!['2027-04-09','2027-04-25'].includes(day.date)) b.push(`<a class="btn alt" href="${dirUrl({dest:HOME(),mode:day.e.mode==='transit'?'transit':'driving'})}" target="_blank" rel="noopener">導航回民宿</a>`);
   return b.length?`<div class="row">${b.join('')}</div>`:'';
 }
 function wxLine(day){const locs=day.wx||['low'];return `<div class="wx">${locs.map(k=>`<span data-wx="${day.date}|${k}">天氣載入中…</span>`).join('')}</div>`;}
