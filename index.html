@@ -164,6 +164,23 @@ details.move{background:var(--soft)}
 details.optstop{border:1px dashed var(--sl,var(--line));margin:.3rem 0 0}
 details.optstop>summary .shead{flex:1 1 0;min-width:0}
 details.more{border:1px dashed var(--sl,var(--line));margin:.5rem 0}
+
+/* ---- 使用說明（給長輩） ---- */
+details.sec.help{border:2px solid var(--accent);box-shadow:none;background:var(--soft)}
+details.sec.help>summary{min-height:64px}
+details.sec.help>summary .sh{color:var(--accent);font-size:1.2rem}
+.guide h3{font-family:var(--serif);color:var(--head);font-size:1.12rem;margin:1.2rem 0 .4rem}
+.guide h3:first-child{margin-top:.2rem}
+.guide p{margin:.45rem 0}
+.guide ol.steps{padding-left:1.5rem;margin:.4rem 0}
+.guide ol.steps li{margin:.6rem 0;padding-left:.2rem}
+.guide ul.plain-list{padding-left:1.3rem;margin:.4rem 0}
+.guide ul.plain-list li{margin:.55rem 0}
+dl.feat{margin:.4rem 0}
+dl.feat dt{margin:.9rem 0 .2rem;font-weight:800}
+dl.feat dd{margin:0;padding-left:.8rem;border-left:3px solid var(--line)}
+.fk{display:inline-block;border:1px solid var(--accent);color:var(--accent);padding:0 .6rem;font-weight:800;background:var(--card);line-height:1.8}
+.fk.solid{background:var(--accent);color:#fff}
 </style>
 </head>
 <body>
@@ -481,7 +498,7 @@ const skinOfDay=day=>{const e=day.e;const f=(e.stops||[])[0]||(e.opt||[])[0];ret
 function photo(id){const r=rec(id);return r.img?`<figure class="ph"><img loading="lazy" decoding="async" referrerpolicy="no-referrer" src="${esc(r.img)}" alt="${esc(SPOTS[id].zh)}" onerror="this.closest('figure').remove()"></figure>`:'';}
 const foldCount = arr=>{let w=0,q=0;(arr||[]).forEach(s=>{if(s[0]==='!')w++;else if(s[0]==='?')q++;});return {n:(arr||[]).length,w,q};};
 const tagsFor = c=>`${c.w?`<span class="tag w">注意 ${c.w}</span>`:''}${c.q?`<span class="tag q">待確認 ${c.q}</span>`:''}`;
-function secHTML(id,title,sub,body){return `<details class="sec" id="sec-${id}"><summary><span class="sx"><span class="sh">${title}</span><span class="ss">${sub||''}</span></span></summary><div class="sec-body">${body}</div></details>`;}
+function secHTML(id,title,sub,body,cls){return `<details class="sec${cls?' '+cls:''}" id="sec-${id}"><summary><span class="sx"><span class="sh">${title}</span><span class="ss">${sub||''}</span></span></summary><div class="sec-body">${body}</div></details>`;}
 function notesFold(day){
   const arr=day.e.notes||[]; if(!arr.length) return '';
   const c=foldCount(arr);
@@ -557,8 +574,70 @@ function movePanel(day){
     <ol class="mv-legend">${start}${rows}</ol>
     <p class="note-small">開車距離與時間用實際道路路線估算（不含停車、休息與塞車）；步行為預估（以每小時約 2.5 公里、含看風景計），依個人腳程增減。</p></div></details>`;
 }
+function guideHTML(){
+  return `<div class="guide">
+  <h3>這個網頁是什麼？</h3>
+  <p>這是我們 4/9 到 4/25 德國南部旅行的<b>行程手冊</b>。每一天一張卡片，告訴你：今天去哪裡、要開多久的車、要走多少路、天氣怎麼樣。</p>
+  <p>用手機或平板點開就能看，<b>不用安裝，也不用登入</b>。內容有更新時，重新整理一下就會看到最新的。</p>
+
+  <h3>怎麼看？四個步驟</h3>
+  <ol class="steps">
+    <li><b>找日期</b>：最上面有一排日期，點一下就會跳到那一天。</li>
+    <li><b>看標題</b>：每天卡片最上面是日期和今天的主題，下一行寫著今天是大家一起出門，還是自己輕鬆逛。</li>
+    <li><b>想知道更多，就點「展開 ▾」</b>。看完再點「收合 ▴」，就會縮回去，畫面比較清爽。</li>
+    <li><b>要出發，就按紅色的「導航到這裡」</b>。手機會打開地圖，一路帶你過去。</li>
+  </ol>
+
+  <h3>這些小功能是做什麼的？</h3>
+  <dl class="feat">
+    <dt><span class="fk">A−</span> <span class="fk">A＋</span></dt>
+    <dd>字太小？按右上角的「A＋」把字放大，「A−」縮小。</dd>
+    <dt><span class="fk solid">↑ 日期</span></dt>
+    <dd>往下看了很久，右下角會出現這顆按鈕，按一下就回到最上面的日期列。</dd>
+    <dt>今日移動預覽</dt>
+    <dd>告訴你今天<b>要開多久的車</b>、<b>大概要走多遠</b>，還有一張簡單的地圖。地圖上的小圖案和號碼，就是下面各個景點。</dd>
+    <dt><span class="lv ok">輕鬆</span> <span class="lv mid">適中</span> <span class="lv hi">偏長</span></dt>
+    <dd>「輕鬆」放心去；「適中」中間記得休息；「偏長」或「偏多」代表今天比較累，可以少去一個地方。這些都是<b>大概的估計</b>，不是很精準。</dd>
+    <dt><span class="tag q">預估</span></dt>
+    <dd>表示這是大概的數字，實際會依每個人的腳程多一點或少一點。</dd>
+    <dt><span class="tag q">待確認</span></dt>
+    <dd>這項資料還沒查清楚，例如開放時間。出發前居本會再確認。</dd>
+    <dt><span class="tag w">注意</span></dt>
+    <dd>重要提醒，例如有樓梯、山上很冷。請先看一下。</dd>
+    <dt><span class="tag o">選配</span></dt>
+    <dd>時間和體力夠再去，不去也沒關係。</dd>
+    <dt><span class="fk solid">導航回民宿</span></dt>
+    <dd>走累了，或是不知道怎麼回去，按這個，手機就會帶你回住的地方。</dd>
+    <dt><span class="fk">附近餐廳</span></dt>
+    <dd>打開地圖，看附近有哪些餐廳。</dd>
+    <dt>維基百科</dt>
+    <dd>想多了解這個景點，點這裡看介紹。那是外文網頁，可以請手機幫忙翻譯。</dd>
+    <dt>天氣</dt>
+    <dd>在最上面，點開來看。山上（黑森林）比市區冷很多，要多帶一件外套。離出發還很久的時候，顯示的是「往年同期」的平均；出發前兩個多星期，會自動換成真正的天氣預報。</dd>
+  </dl>
+  <p class="note-small">導航和天氣需要手機有網路。</p>
+
+  <h3>這份行程跟之前的 Excel 有什麼不同？</h3>
+  <p>之前看到的 Excel 是<b>最初的構想</b>，景點排得比較滿，也比較遠。現在這一版，是依照<b>居本的上班時間</b>重新安排，讓工作和旅遊都能顧到：</p>
+  <ul class="plain-list">
+    <li><b>上班的那幾天（4/12–4/16）</b>：居本要上班（4/14、4/15 還要去柏林出差），所以排比較輕鬆的行程，像是巴登巴登市區、搭火車去附近的小城，或是在家休息。大家剛到德國，也正好慢慢調時差。</li>
+    <li><b>週末和居本休假的日子（4/17 以後）</b>：才安排開車出去玩，景點比較遠，也比較精采。</li>
+    <li><b>全程住同一間房子</b>，不用每天搬行李。</li>
+    <li>太遠的地方（單程要兩小時左右或更久）這次先不排，或只當備案。想去的話，到時候看大家的體力再安排。</li>
+  </ul>
+  <p>Excel 裡有特別想去的地方，請告訴居本，看哪一天可以換進來。</p>
+
+  <h3>最後提醒</h3>
+  <ul class="plain-list">
+    <li>累了就休息，每一天的行程都可以隨時縮短。</li>
+    <li>身體不舒服，或遇到緊急狀況，請打 <b>112</b>（歐洲通用的緊急電話）。</li>
+    <li>有看不懂的地方，直接問居本。</li>
+  </ul>
+  </div>`;
+}
 function elderPage(){
-  return `${secHTML('wx','天氣','<span id="wxSum">載入中…</span>','<div class="wxpanel" id="wxPanel"><p>載入中…</p></div>')}
+  return `${secHTML('help','第一次使用？先看這裡','3 分鐘看懂這個網頁',guideHTML(),'help')}
+    ${secHTML('wx','天氣','<span id="wxSum">載入中…</span>','<div class="wxpanel" id="wxPanel"><p>載入中…</p></div>')}
     ${secHTML('ov','每日移動量一覽','17 天的開車與步行負擔',overviewHTML())}
     ${lodgingCard()}
     ${DAYS.map(elderCard).join('')}`;
@@ -790,6 +869,7 @@ function show(tab){
   const work=tab==='work';
   $('#tabElder').setAttribute('aria-selected',String(!work));$('#tabWork').setAttribute('aria-selected',String(work));
   $('#app').innerHTML=work?workPage():elderPage();
+  if(!work){try{if(!localStorage.getItem('baden27.helpSeen')){const h=$('#sec-help');if(h){h.open=true;localStorage.setItem('baden27.helpSeen','1');}}}catch(e){}}
   chips(work?'work':'elder');
   if(work){bindWork();} else {paintWx();}
   try{history.replaceState(null,'','#'+(work?'work':'elder'));}catch(e){}
@@ -828,7 +908,7 @@ $('#chips').addEventListener('click',ev=>{const a=ev.target.closest('a[data-jump
 $('#toTop').addEventListener('click',()=>{const c=$('#chips');window.scrollTo({top:c.getBoundingClientRect().top+scrollY-$('.tabs').offsetHeight-8,behavior:'smooth'});});
 addEventListener('scroll',()=>$('#toTop').classList.toggle('hidden',scrollY<500),{passive:true});
 $('#brandEmb').innerHTML=emblem('gothic',SK.gothic.line,48);
-$('#stamp').textContent='資料版本：2026-10-09 草案 v4（章節收納；新增每日移動預覽；外觀：哥德式基底＋依景點建築風格變化；行程為草案，未經全部確認）。';
+$('#stamp').textContent='資料版本：2026-10-09 草案 v5（新增使用說明；章節收納；新增每日移動預覽；外觀：哥德式基底＋依景點建築風格變化；行程為草案，未經全部確認）。';
 
 show(location.hash==='#work'&&SHOW_WORK?'work':'elder');
 loadWeather();
