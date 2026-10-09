@@ -1,0 +1,625 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="color-scheme" content="light">
+<meta name="robots" content="noindex,nofollow,noarchive">
+<meta property="og:type" content="website">
+<meta property="og:title" content="巴登巴登春遊 2027｜長輩行程">
+<meta property="og:description" content="4/9–4/25 德國南部與亞爾薩斯：每日路線、景點照片、天氣與注意事項。">
+<meta property="og:image" content="https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d4/Schwetzingen_BW_2014-07-22_16-43-37.jpg/960px-Schwetzingen_BW_2014-07-22_16-43-37.jpg">
+<title>巴登巴登春遊</title>
+<style>
+:root{
+  --page:#f3eee6;--card:#fffdf9;--ink:#2a2420;--muted:#5a4d45;--line:#c9a894;--head:#5e2d25;
+  --accent:#7a3b30;--accent-fg:#ffffff;--soft:#f8f1e8;
+  --warn-bg:#f7ead9;--warn-fg:#4a2e12;--tbc-bg:#eceff6;--tbc-fg:#26325a;--ok-bg:#eef2e8;--ok-fg:#2f4a2a;
+  --serif:"Noto Serif TC","Source Han Serif TC","Songti TC","PMingLiU",serif;
+}
+*{box-sizing:border-box}
+html{font-size:20px;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--page);color:var(--ink);line-height:1.65;
+  font-family:"Noto Sans TC","PingFang TC","Microsoft JhengHei",system-ui,-apple-system,sans-serif;
+  padding:0 max(16px,env(safe-area-inset-right)) 3rem max(16px,env(safe-area-inset-left))}
+.wrap{max-width:760px;margin:0 auto}
+svg{display:block}
+header.top{padding:.8rem 0 .5rem}
+.titlebar{display:flex;align-items:center;justify-content:space-between;gap:.6rem}
+.brand{display:flex;align-items:center;gap:.7rem}
+h1{font-family:var(--serif);font-size:1.4rem;margin:0;line-height:1.25;color:var(--head)}
+h1 small{display:block;font-family:"Noto Sans TC","Microsoft JhengHei",sans-serif;font-size:.8rem;font-weight:500;color:var(--muted)}
+.fs{display:flex;flex:0 0 auto;white-space:nowrap}
+.fs button{min-width:48px;min-height:48px;font-size:1rem;font-weight:700;border:1px solid var(--line);background:var(--card);color:var(--accent);margin-left:.25rem;box-shadow:inset 0 0 0 3px var(--card),inset 0 0 0 4px var(--line)}
+.tabs{position:sticky;top:0;z-index:20;background:var(--page);border-bottom:1px solid var(--line);padding:.45rem 0;display:grid;grid-template-columns:1fr 1fr;gap:.5rem}
+.tabs button{min-height:56px;font-family:var(--serif);font-size:1.1rem;font-weight:800;border:1px solid var(--line);background:var(--card);color:var(--accent);
+  box-shadow:inset 0 0 0 3px var(--card),inset 0 0 0 4px var(--line)}
+.tabs button[aria-selected=true]{background:var(--accent);color:#fff;border-color:var(--accent);box-shadow:inset 0 0 0 3px var(--accent),inset 0 0 0 4px rgba(255,255,255,.6)}
+.chips{display:flex;gap:.4rem;overflow-x:auto;padding:.5rem 0 .3rem;scrollbar-width:thin}
+.chips a{flex:0 0 auto;min-height:48px;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:0 .75rem;border:1px solid var(--line);color:var(--ink);text-decoration:none;font-weight:700;font-size:.85rem;line-height:1.2;background:var(--card)}
+.chips a.today{border:2px solid var(--accent);color:var(--accent)}
+.chips a span{font-weight:500;font-size:.7rem;color:var(--muted)}
+#toTop{position:fixed;right:max(14px,env(safe-area-inset-right));bottom:max(14px,env(safe-area-inset-bottom));z-index:30;min-width:56px;min-height:56px;padding:0 .9rem;border:1px solid var(--accent);background:var(--accent);color:#fff;font-weight:800;font-size:.95rem;box-shadow:0 2px 8px rgba(0,0,0,.25),inset 0 0 0 3px var(--accent),inset 0 0 0 4px rgba(255,255,255,.55)}
+h2{font-family:var(--serif);color:var(--head);font-size:1.25rem;margin:1.6rem 0 .6rem;display:flex;align-items:center;gap:.7rem}
+h2::after{content:"";flex:1;height:1px;background:var(--line)}
+h3{font-size:1.1rem;margin:0}
+.card{background:var(--card);border:1px solid var(--dl,var(--line));box-shadow:inset 0 0 0 5px var(--card),inset 0 0 0 6px var(--dl,var(--line));padding:1.2rem 1.1rem 1.1rem;margin:1.1rem 0;scroll-margin-top:5rem}
+.card.today{border:2px solid var(--accent);box-shadow:inset 0 0 0 5px var(--card),inset 0 0 0 6px var(--accent)}
+.dayhead{display:flex;gap:.8rem;align-items:center;flex-wrap:wrap}
+.dayhead .ttlbox{flex:1;min-width:10rem}
+.date{font-family:var(--serif);font-size:1.7rem;font-weight:800;line-height:1.15;color:var(--dh,var(--head))}
+.dtitle{font-family:var(--serif);font-size:1.12rem;font-weight:700;line-height:1.35}
+.who{color:var(--muted);font-size:.85rem;margin:.15rem 0 .5rem}
+.tag{display:inline-block;font-size:.72rem;font-weight:800;padding:0 .4rem;margin-right:.4rem;vertical-align:.1em;border:1px solid currentColor}
+.tag.w{background:var(--warn-bg);color:var(--warn-fg)} .tag.q{background:var(--tbc-bg);color:var(--tbc-fg)}
+.tag.o{background:var(--ok-bg);color:var(--ok-fg)} .tag.t{background:var(--accent);color:#fff;border-color:var(--accent)}
+ul.notes,ul.plain{margin:.4rem 0;padding-left:0;list-style:none}
+ul.notes li,ul.plain li{padding:.45rem .65rem;margin:.35rem 0;border:1px solid var(--line);background:var(--card)}
+ul.notes li.warn{background:var(--warn-bg);color:var(--warn-fg);border-color:transparent;border-left:4px solid var(--warn-fg)}
+ul.notes li.tbc{background:var(--tbc-bg);color:var(--tbc-fg);border-color:transparent}
+.drive{margin:.5rem 0;padding:.5rem .75rem;border-left:4px solid var(--dl,var(--line));background:var(--soft)}
+.drive div{margin:.1rem 0}
+.flower{margin:.5rem 0;padding:.5rem .75rem;border:1px dashed var(--dl,var(--line));background:var(--soft)}
+.stop{margin-top:1.3rem}
+.band{height:16px;background-image:var(--band);background-repeat:repeat-x;background-position:center;background-size:auto 100%;margin-bottom:.6rem}
+.stop.opt .band{opacity:.65}
+.shead{display:flex;gap:.7rem;align-items:center}
+.shead .emb{flex:0 0 auto}
+h4{font-family:var(--serif);font-size:1.15rem;margin:0;line-height:1.35;color:var(--sh,var(--head))}
+.stop .de{margin:0;color:var(--muted);font-size:.82rem;line-height:1.35}
+.stop p{margin:.35rem 0}
+.meta{font-size:.9rem;margin:.2rem 0}.meta b{display:inline-block;min-width:4.6em;color:var(--muted)}
+figure.ph{margin:.55rem 0;padding:6px;background:#fff;border:1px solid var(--sl,var(--line))}
+figure.ph img{width:100%;aspect-ratio:16/10;object-fit:cover;display:block;background:var(--soft)}
+.row{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:.6rem;align-items:center}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:56px;padding:.4rem 1.05rem;font-weight:800;text-decoration:none;background:var(--accent);color:var(--accent-fg);border:1px solid var(--accent);font-size:1rem;cursor:pointer;
+  box-shadow:inset 0 0 0 3px var(--accent),inset 0 0 0 4px rgba(255,255,255,.5)}
+.btn.alt{background:var(--card);color:var(--accent);border-color:var(--accent);box-shadow:inset 0 0 0 3px var(--card),inset 0 0 0 4px var(--accent)}
+.btn[aria-disabled=true]{opacity:.55;pointer-events:none}
+.lnk{color:var(--accent);font-weight:700;min-height:48px;display:inline-flex;align-items:center}
+.wx{display:flex;flex-wrap:wrap;gap:.4rem;margin:.4rem 0}
+.wx span{padding:.2rem .6rem;border:1px solid var(--line);font-size:.88rem;background:var(--soft)}
+.wxpanel{display:grid;gap:.6rem}
+@media (min-width:560px){.wxpanel{grid-template-columns:1fr 1fr}}
+.wxbox{border:1px solid var(--line);padding:.6rem .8rem;background:var(--soft)}
+.wxbox b{display:block;font-family:var(--serif)}
+.big{font-size:1.6rem;font-weight:800}
+.note-small{font-size:.8rem;color:var(--muted)}
+details{border:1px solid var(--line);box-shadow:inset 0 0 0 4px var(--card),inset 0 0 0 5px var(--line);padding:.6rem .95rem;margin:.9rem 0;background:var(--card)}
+summary{min-height:48px;display:flex;align-items:center;font-family:var(--serif);font-weight:800;cursor:pointer;color:var(--head)}
+table{border-collapse:collapse;width:100%;font-size:.9rem}
+th,td{border:1px solid var(--line);padding:.35rem .5rem;text-align:left;vertical-align:top}
+.st{display:inline-block;min-width:5.2em;font-weight:800;font-size:.8rem;padding:.05rem .45rem;text-align:center}
+.st.done{background:var(--ok-bg);color:var(--ok-fg)}.st.later{background:var(--tbc-bg);color:var(--tbc-fg)}
+.st.ask{background:var(--warn-bg);color:var(--warn-fg)}.st.draft{background:var(--card);border:1px solid var(--line)}.st.todo{background:var(--tbc-bg);color:var(--tbc-fg)}
+label.chk{display:flex;gap:.7rem;align-items:flex-start;padding:.5rem 0;min-height:48px}
+label.chk input{width:28px;height:28px;flex:0 0 auto;margin-top:.15rem;accent-color:var(--accent)}
+input,select,textarea{font:inherit;min-height:52px;padding:.3rem .6rem;border:1px solid var(--line);background:var(--card);color:var(--ink);max-width:100%}
+.loggrid{display:grid;grid-template-columns:1fr 1fr;gap:.5rem}.loggrid .full{grid-column:1/-1}
+footer{margin-top:2rem;font-size:.8rem;color:var(--muted)}
+footer a{color:var(--accent)}
+.hidden{display:none!important}
+:focus-visible{outline:4px solid var(--accent);outline-offset:2px}
+@media print{.fs,.tabs,#toTop{display:none}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="top">
+  <div class="titlebar">
+    <div class="brand"><span id="brandEmb" aria-hidden="true"></span><h1>巴登巴登春遊 2027<small>4/9 – 4/25 · 德國南部（含亞爾薩斯）</small></h1></div>
+    <div class="fs" aria-label="字體大小"><button id="fsDown" aria-label="縮小字體">A−</button><button id="fsUp" aria-label="放大字體">A＋</button></div>
+  </div>
+</header>
+<div class="tabs" role="tablist">
+  <button role="tab" id="tabElder" aria-selected="true">長輩行程</button>
+  <button role="tab" id="tabWork" aria-selected="false">我的工作行程</button>
+</div>
+<nav class="chips" id="chips" aria-label="日期快速跳轉"></nav>
+<main id="app"></main>
+<button id="toTop" class="hidden" aria-label="回到頁首的日期列">↑ 日期</button>
+<footer>
+  <p><span class="tag q">待確認</span>＝資料尚未查證，出發前請再確認；<span class="tag w">注意</span>＝重要提醒。車程為概估，實際以 Google 地圖即時導航為準。</p>
+  <p>照片與座標：Wikipedia / Wikimedia Commons（各圖作者與授權見原頁面）。天氣：<a href="https://open-meteo.com/">Open-Meteo.com</a>（CC BY 4.0）。</p>
+  <p>外觀說明：整體以哥德式（玫瑰窗）為基底；各景點的徽記、飾帶與線條色依其建築風格變化（羅曼式、巴洛克、文藝復興式、半木造、古典主義、山林）。標示的建築風格皆以 Wikipedia 查證。</p>
+  <p id="stamp"></p>
+</footer>
+</div>
+
+<script id="resolved">
+/* 自動查得（Wikipedia REST API，2026-10-09 實測）：座標與照片網址。請勿手改；景點內容在下方 SPOTS。 */
+const RES = {"fra":{"lat":50.03333,"lon":8.57056,"img":"https://thumb.wikimedia.org/wikipedia/commons/thumb/2/29/Frankfurt_Airport_Logo_2019.svg/960px-Frankfurt_Airport_Logo_2019.svg.png","wiki":"https://en.wikipedia.org/wiki/Frankfurt_Airport"},"schwetzingen":{"lat":49.38417,"lon":8.57056,"img":"https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d4/Schwetzingen_BW_2014-07-22_16-43-37.jpg/960px-Schwetzingen_BW_2014-07-22_16-43-37.jpg","wiki":"https://en.wikipedia.org/wiki/Schwetzingen_Palace"},"speyer":{"lat":49.3172,"lon":8.4424,"img":"https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c7/Speyer_dom_11.jpg/960px-Speyer_dom_11.jpg","wiki":"https://en.wikipedia.org/wiki/Speyer_Cathedral"},"baden_baden":{"lat":48.76278,"lon":8.24083,"img":"https://thumb.wikimedia.org/wikipedia/commons/thumb/1/10/Baden-Baden_10-2015_img05_View_from_Merkur.jpg/960px-Baden-Baden_10-2015_img05_View_from_Merkur.jpg","wiki":"https://en.wikipedia.org/wiki/Baden-Baden"},"lichtentaler":{"lat":48.7597,"lon":8.23871,"img":"https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6f/Lichtentaler_Allee_IMGP7191.jpg/960px-Lichtentaler_Allee_IMGP7191.jpg","wiki":"https://en.wikipedia.org/wiki/Lichtentaler_Allee"},"kurhaus":{"lat":48.76028,"lon":8.23639,"img":"https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4a/Baden_baden_2016_0010.jpg/960px-Baden_baden_2016_0010.jpg","wiki":"https://de.wikipedia.org/wiki/Kurhaus_Baden-Baden"},"trinkhalle":{"lat":48.76176,"lon":8.23678,"img":"https://thumb.wikimedia.org/wikipedia/commons/thumb/0/07/Baden-Baden_10-2015_img37_Pump_house.jpg/960px-Baden-Baden_10-2015_img37_Pump_house.jpg","wiki":"https://de.wikipedia.org/wiki/Trinkhalle_Baden-Baden"},"lichtenthal":{"lat":48.74528,"lon":8.25556,"img":"https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c5/Baden-Baden_10-2015_img54_Lichtental.jpg/960px-Baden-Baden_10-2015_img54_Lichtental.jpg","wiki":"https://en.wikipedia.org/wiki/Lichtenthal_Abbey"},"caracalla":{"lat":48.76372,"lon":8.24508,"img":"https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a7/Baden-Baden-Caracalla-Therme-06-gje.jpg/960px-Baden-Baden-Caracalla-Therme-06-gje.jpg","wiki":"https://de.wikipedia.org/wiki/Caracalla-Therme"},"friedrichsbad":{"lat":48.7631,"lon":8.2422,"img":"https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7c/Baden-Baden-Friedrichsbad-01-Suedost-gje.jpg/960px-Baden-Baden-Friedrichsbad-01-Suedost-gje.jpg","wiki":"https://en.wikipedia.org/wiki/Friedrichsbad"},"rastatt":{"lat":48.85889,"lon":8.20556,"img":"https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4d/Residenzschloss_Rastatt.jpg/960px-Residenzschloss_Rastatt.jpg","wiki":"https://de.wikipedia.org/wiki/Schloss_Rastatt"},"favorite":{"lat":48.82222,"lon":8.24,"img":"https://thumb.wikimedia.org/wikipedia/commons/thumb/0/00/Westansicht_Schloss_Favorite_Rastatt_2013_%282%29.jpg/960px-Westansicht_Schloss_Favorite_Rastatt_2013_%282%29.jpg","wiki":"https://de.wikipedia.org/wiki/Schloss_Favorite_(Rastatt)"},"merkur":{"lat":48.76167,"lon":8.28056,"img":"https://thumb.wikimedia.org/wikipedia/commons/thumb/4/43/Merkur_Baden-Baden_IMGP7974.JPG/960px-Merkur_Baden-Baden_IMGP7974.JPG","wiki":"https://en.wikipedia.org/wiki/Merkur_(mountain)"},"geroldsau":{"lat":48.71276,"lon":8.24958,"img":"https://thumb.wikimedia.org/wikipedia/commons/thumb/b/bb/Geroldsauer_Wasserfall_IMGP3436.jpg/960px-Geroldsauer_Wasserfall_IMGP3436.jpg","wiki":"https://de.wikipedia.org/wiki/Geroldsauer_Wasserfall"},"karlsruhe":{"lat":49.0136,"lon":8.4044,"img":"https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8f/Aerial_image_of_the_Karlsruhe_Palace_%28view_from_the_southwest%29.jpg/960px-Aerial_image_of_the_Karlsruhe_Palace_%28view_from_the_southwest%29.jpg","wiki":"https://en.wikipedia.org/wiki/Karlsruhe_Palace"},"mummelsee":{"lat":48.59806,"lon":8.20083,"img":"https://thumb.wikimedia.org/wikipedia/commons/thumb/5/57/Mummelsee01.jpg/960px-Mummelsee01.jpg","wiki":"https://en.wikipedia.org/wiki/Mummelsee"},"sasbachwalden":{"lat":48.61833,"lon":8.12722,"img":"https://thumb.wikimedia.org/wikipedia/commons/thumb/b/bf/Sasbachwalden_in_OG.svg/960px-Sasbachwalden_in_OG.svg.png","wiki":"https://en.wikipedia.org/wiki/Sasbachwalden"},"kappelrodeck":{"lat":48.59111,"lon":8.1175,"img":"https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e2/Kappelrodeck_in_OG.svg/960px-Kappelrodeck_in_OG.svg.png","wiki":"https://en.wikipedia.org/wiki/Kappelrodeck"},"oberkirch":{"lat":48.53083,"lon":8.07889,"img":"https://thumb.wikimedia.org/wikipedia/commons/thumb/3/36/DEU_Oberkirch_COA.svg/langde-330px-DEU_Oberkirch_COA.svg.png","wiki":"https://de.wikipedia.org/wiki/Oberkirch_(Baden)"},"maulbronn":{"lat":49.00111,"lon":8.81278,"img":"https://thumb.wikimedia.org/wikipedia/commons/thumb/0/01/Courtyard_facade_-_Maulbronn_Monastery.jpg/960px-Courtyard_facade_-_Maulbronn_Monastery.jpg","wiki":"https://en.wikipedia.org/wiki/Maulbronn_Monastery"},"ludwigsburg":{"lat":48.9,"lon":9.19583,"img":"https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8f/Residenzschloss_Ludwigsburg_2019-04-22b_%28cropped%29.jpg/960px-Residenzschloss_Ludwigsburg_2019-04-22b_%28cropped%29.jpg","wiki":"https://en.wikipedia.org/wiki/Ludwigsburg_Palace"},"bluehendes":{"lat":48.9,"lon":9.198,"img":"https://thumb.wikimedia.org/wikipedia/commons/thumb/3/34/Schloss_und_Bluehendes_Barock_in_Ludwigsburg.jpg/960px-Schloss_und_Bluehendes_Barock_in_Ludwigsburg.jpg","wiki":"https://de.wikipedia.org/wiki/Bl%C3%BChendes_Barock"},"strasbourg":{"lat":48.58167,"lon":7.75083,"img":"https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7e/Strasbourg_Cathedral_Exterior_-_Diliff.jpg/960px-Strasbourg_Cathedral_Exterior_-_Diliff.jpg","wiki":"https://en.wikipedia.org/wiki/Strasbourg_Cathedral"},"petitefrance":{"lat":48.58083,"lon":7.74056,"img":"https://thumb.wikimedia.org/wikipedia/commons/thumb/4/49/Strasbourg_Petite-France_place_Benjamin-Zix_septembre_2015.jpg/960px-Strasbourg_Petite-France_place_Benjamin-Zix_septembre_2015.jpg","wiki":"https://en.wikipedia.org/wiki/Petite_France%2C_Strasbourg"},"heidelberg":{"lat":49.41,"lon":8.716,"img":"https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1d/Heidelberg-2726936.jpg/960px-Heidelberg-2726936.jpg","wiki":"https://de.wikipedia.org/wiki/Heidelberger_Schloss"},"bruchsal":{"lat":49.12869,"lon":8.59875,"img":"https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9d/Bruchsal_%2823%29.jpg/960px-Bruchsal_%2823%29.jpg","wiki":"https://en.wikipedia.org/wiki/Bruchsal_Palace"},"colmar":{"lat":48.0817,"lon":7.3556,"img":"https://thumb.wikimedia.org/wikipedia/commons/thumb/8/85/View_of_%C3%89glise_Saint-Martin_%2843833049001%29.jpg/960px-View_of_%C3%89glise_Saint-Martin_%2843833049001%29.jpg","wiki":"https://en.wikipedia.org/wiki/Colmar"},"riquewihr":{"lat":48.1672,"lon":7.2978,"img":"https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f2/0_Riquewihr_%281%29.jpg/960px-0_Riquewihr_%281%29.jpg","wiki":"https://en.wikipedia.org/wiki/Riquewihr"},"baumwipfel":{"lat":48.74757,"lon":8.53149,"img":"https://thumb.wikimedia.org/wikipedia/commons/thumb/0/05/Bad_Wildbad_-_Sommerberg_-_Baumwipfelpfad_14_ies.jpg/960px-Bad_Wildbad_-_Sommerberg_-_Baumwipfelpfad_14_ies.jpg","wiki":"https://de.wikipedia.org/wiki/Baumwipfelpfad_Schwarzwald"},"wildbad":{"lat":48.75028,"lon":8.55056,"img":"https://thumb.wikimedia.org/wikipedia/commons/thumb/6/60/Katholische_Kirche_Bad_Wildbad.jpg/960px-Katholische_Kirche_Bad_Wildbad.jpg","wiki":"https://en.wikipedia.org/wiki/Bad_Wildbad"},"sommerbergbahn":{"lat":48.75021,"lon":8.54419,"img":"https://thumb.wikimedia.org/wikipedia/commons/thumb/3/32/Sommerbergbahn_%281%29.JPG/960px-Sommerbergbahn_%281%29.JPG","wiki":"https://de.wikipedia.org/wiki/Sommerbergbahn"},"herrenalb":{"lat":48.80056,"lon":8.44083,"img":"https://thumb.wikimedia.org/wikipedia/commons/thumb/5/53/Bad_Herrenalb.jpg/960px-Bad_Herrenalb.jpg","wiki":"https://en.wikipedia.org/wiki/Bad_Herrenalb"},"gengenbach":{"lat":48.4,"lon":8.01667,"img":"https://thumb.wikimedia.org/wikipedia/commons/thumb/7/77/Gengenbach_4.jpg/960px-Gengenbach_4.jpg","wiki":"https://en.wikipedia.org/wiki/Gengenbach"},"durbach":{"lat":48.5,"lon":8.01667,"img":"https://thumb.wikimedia.org/wikipedia/commons/thumb/7/75/Durbach_in_OG.svg/960px-Durbach_in_OG.svg.png","wiki":"https://en.wikipedia.org/wiki/Durbach"},"nationalpark":{"lat":48.56111,"lon":8.22139,"img":"https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c4/Huzenbachersee.jpg/960px-Huzenbachersee.jpg","wiki":"https://en.wikipedia.org/wiki/Black_Forest_National_Park"},"ettlingen":{"lat":48.93333,"lon":8.4,"img":"https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fe/Ettlingen-09j-Rathaus-2023-gje.jpg/960px-Ettlingen-09j-Rathaus-2023-gje.jpg","wiki":"https://en.wikipedia.org/wiki/Ettlingen"}};
+</script>
+<script>
+"use strict";
+/* ================= 全域設定（日後調整改這裡） ================= */
+const TRIP = {
+  start:'2027-04-09', end:'2027-04-25',
+  airbnb:{ address:'' /* 確切地址提供後填入，例如 'Straße 1, 76530 Baden-Baden'；填入後所有導航自動以此為起點 */,
+           link:'https://www.airbnb.com/l/B4kGdPXJ', stairs:true },
+  work:{ name:'公司', address:'Flugstraße 22, 76532 Baden-Baden' },
+  berlin:{ address:'Ohlauer Str. 5-11, 10999 Berlin' },
+  emergency:'112'
+};
+const LOC = {
+  low :{ label:'巴登巴登（平地）',               lat:48.7628, lon:8.2408 },
+  high:{ label:'黑森林高地 Mummelsee（約 1,030 公尺）', lat:48.5981, lon:8.2008, elev:1030 },
+  somm:{ label:'Bad Wildbad 夏日山（約 750 公尺）', lat:48.7476, lon:8.5315, elev:750 }
+};
+const CLIM_YEARS = [2021,2022,2023,2024,2025];
+
+/* ================= 景點資料（一個景點一筆） =================
+   欄位：zh 中文名、de 原文名、d 說明、walk 步行量、stairs 階梯/坡度、n 注意事項、navQ 導航用文字（無座標時）、res 借用其他條目的座標/照片。
+   n 的字首：「!」＝注意（黃底）、「?」＝待確認（藍底）、無字首＝一般說明。
+   外觀語彙（依各景點自己的建築風格）另放在下方 ARCH：sk＝外觀風格、ar＝「建築風格」文字（只放有查證依據的）。 */
+const SPOTS = {
+ schwetzingen:{zh:'施韋青根宮與花園',de:'Schloss Schwetzingen',d:'昔日普法爾茨選帝侯的夏宮，花園由法式幾何花園逐步轉為英式景觀花園，園內還有一座仿清真寺的建築。',walk:'多（園區大，挑重點走、累了就坐長椅）',stairs:'花園以平路為主；宮殿內部導覽通常有樓梯',n:['?開放時間、門票、導覽場次（2027 年）出發前查官方網站。','?施韋青根以白蘆筍（Spargel）聞名，季節通常 4 月中旬起，視當年氣候。']},
+ speyer:{zh:'施派爾大教堂',de:'Speyerer Dom',d:'聯合國世界遺產，現存最大的羅曼式教堂，多位神聖羅馬帝國皇帝安葬於此。',walk:'少',n:['?地下墓室（Krypta）需走階梯，是否有無障礙入口待確認。','?開放時間待查（禮拜時段可能限制參觀）。']},
+ baden_baden:{zh:'巴登巴登老城',de:'Baden-Baden',d:'溫泉小城，老城、庫爾豪斯、溫泉浴場都在步行範圍內；靠山的街道有坡度。',walk:'中',n:[]},
+ lichtentaler:{zh:'利希滕塔爾大道',de:'Lichtentaler Allee',d:'歷史公園兼樹木園，沿奧斯河（Oos）全長約 2.3 公里，全天免費開放。四月有木蘭、櫻花、鬱金香與水仙。',walk:'中（沿河平路，可隨時折返）',n:['鬱金香花園約 7,000 株、64 個品種（巴登巴登官方花曆）。','?花況逐年不同，出發前一週查官方花曆。']},
+ lichtenthal:{zh:'利希滕塔爾修道院',de:'Kloster Lichtenthal',d:'1245 年創建的熙篤會女修道院，至今仍有修女居住，位在 Lichtentaler Allee 的南端。',walk:'少',n:['?教堂與庭院的參觀時間待查（修道院仍在使用中）。']},
+ trinkhalle:{zh:'飲泉廳',de:'Trinkhalle',d:'1839–1842 年興建的古典溫泉飲水廳，由 16 根科林斯式圓柱撐起長廊，可試喝溫泉水。',walk:'少',n:[]},
+ kurhaus:{zh:'庫爾豪斯',de:'Kurhaus',d:'巴登巴登的社交中心，賭場所在地；建築華麗，從外觀與廊柱就值得一看。',walk:'少',n:[]},
+ caracalla:{zh:'卡拉卡拉溫泉',de:'Caracalla Therme',d:'現代化的大型溫泉池，穿泳衣入浴，適合想泡溫泉又不想裸湯的人。',walk:'少',n:['!桑拿區依德國習慣為裸體區，請留意現場標示。','?營業時間與票價出發前查官網。']},
+ friedrichsbad:{zh:'弗里德里希浴場',de:'Friedrichsbad',d:'1877 年落成的羅馬—愛爾蘭式浴場，建築華美，約 3 小時的多道關卡式溫泉療程。',walk:'少',n:['!傳統上為裸體入浴（多數時段），另有男女分開的時段；不想裸浴請改選 Caracalla。','?各日時段安排與票價（官網）。']},
+ rastatt:{zh:'拉施塔特皇宮',de:'Residenzschloss Rastatt',d:'巴登侯爵「土耳其人路易」興建的巴洛克宮殿，格局仿凡爾賽宮。',walk:'中',stairs:'內部導覽樓梯多，是否有電梯待確認',n:['?通常週一休館；今天排在週二，仍需確認 2027 年的開放日與導覽時間。']},
+ favorite:{zh:'寵姬夏宮',de:'Schloss Favorite',d:'侯爵夫人 Sibylla Augusta 興建的巴洛克夏宮，內部以瓷器、鏡飾與華麗裝飾聞名。',walk:'中',stairs:'宮殿內部樓梯狀況待確認',n:['!週一休館，只能跟導覽團入內。季節期間 10:00–18:00（依官方新聞稿，2027 年需再確認）。','?與 Rastatt 皇宮直線距離約 5 公里，兩地之間的交通（計程車／公車）待查。']},
+ merkur:{zh:'梅爾庫爾山',de:'Merkur',d:'海拔約 668 公尺，是巴登巴登的「後花園山」，搭登山纜車上山，可眺望市區與山谷。',walk:'少（纜車上山）',n:['?登山纜車 2027 年 4 月是否營運待查；不營運就改市區散步或博物館。']},
+ geroldsau:{zh:'格羅爾茨瑙瀑布',de:'Geroldsauer Wasserfall',d:'巴登巴登南郊森林裡、約 6 公尺高的小瀑布。',walk:'少至中',stairs:'林間步道，路面可能不平或濕滑',n:['?步道實際長度與坡度待查。','杜鵑從 4 月底才開始開，4/23 可能尚早。']},
+ karlsruhe:{zh:'卡爾斯魯爾宮',de:'Schloss Karlsruhe',d:'1715 年興建，整座扇形城市以宮殿為中心向外放射；宮殿今為巴登邦立博物館，後方有宮殿花園與植物園，走路可到。',walk:'中',n:['搭區域火車到 Karlsruhe 約 20–30 分鐘。','?各處開放時間待查。']},
+ mummelsee:{zh:'穆梅爾湖',de:'Mummelsee',d:'黑森林北部山腰的冰斗湖，海拔約 1,030 公尺，環湖約 800 公尺；傳說湖中住著水精靈（Mummel）。',walk:'少（環湖短步道）',n:['!海拔高，比平地冷，可能有殘雪或結冰；帶外套、帽子、手套。','?高地公路 B500 與湖邊步道 4 月的積雪路況，出發前查。','Wildsee 步道坡陡，本次不安排。']},
+ sasbachwalden:{zh:'薩斯巴赫瓦爾登',de:'Sasbachwalden',d:'黑森林西麓、Hornisgrinde 山腳的葡萄酒小鎮，是 Ortenau 果樹花海的賞花區之一。',walk:'少至中',stairs:'小鎮有坡度',n:[]},
+ kappelrodeck:{zh:'卡佩爾羅德克',de:'Kappelrodeck',d:'以果園與黑皮諾（Spätburgunder）紅酒聞名的小鎮，有約 6 公里的賞花步道、逾 6 萬棵果樹（黑森林旅遊局）。',walk:'視走法而定',n:['6 公里全程對長輩太長：建議開車到觀景點短走即可。','?花期約 4 月中，逐年不同，行前一週再看花況。']},
+ oberkirch:{zh:'上基希',de:'Oberkirch',d:'雷南河谷（Renchtal）的果樹與葡萄酒產區，春季果樹開花。',walk:'少',n:[]},
+ durbach:{zh:'杜爾巴赫',de:'Durbach',d:'以葡萄酒聞名的山丘小村，屬於 Ortenau 果園與葡萄園地帶。',walk:'少',navQ:'Durbach, Germany',n:[]},
+ gengenbach:{zh:'根根巴赫老城',de:'Gengenbach',d:'金茨河（Kinzig）畔的歷史老城，保存許多半木造房屋。',walk:'少至中',stairs:'老城為石板路',navQ:'Gengenbach, Germany',n:[]},
+ maulbronn:{zh:'毛爾布龍修道院',de:'Kloster Maulbronn',d:'聯合國世界遺產，歐洲保存最完整的修道院建築群之一，12 世紀起建。',walk:'中',n:['?開放時間、票價、有無無障礙路線待查。']},
+ bluehendes:{zh:'開花巴洛克花園',de:'Blühendes Barock',d:'環繞路德維希堡宮的大型花園，春季有鬱金香展。',walk:'多（園區大，累了可縮短行程）',n:['?2027 年開園日期與票價待查。']},
+ ludwigsburg:{zh:'路德維希堡宮',de:'Residenzschloss Ludwigsburg',d:'有「施瓦本的凡爾賽」之稱，擁有 452 個房間的宮殿建築群。',walk:'中',stairs:'宮殿導覽的樓梯與電梯狀況待確認',n:['?導覽場次與開放時間待查。']},
+ strasbourg:{zh:'史特拉斯堡聖母大教堂',de:'Cathédrale Notre-Dame de Strasbourg',d:'哥德式建築的傑作，單一尖塔高約 142 公尺。',walk:'少',n:['!鐘樓平台約 330 級階梯，不建議長輩登塔。','?教堂開放時間與天文鐘展演時間，出發前查。']},
+ petitefrance:{zh:'小法國區',de:'La Petite France',d:'伊爾河（Ill）運河與窄巷間的半木造老屋街區。',walk:'中',stairs:'石板路',n:['?遊船（約 50 分鐘）班次、票價與上船是否好走，待查。']},
+ heidelberg:{zh:'海德堡城堡',de:'Heidelberger Schloss',d:'德國最著名的廢墟之一，紅色內卡河谷砂岩建成，俯瞰內卡河與老城；地下酒窖有巨型酒桶。',walk:'多',stairs:'石階與鵝卵石坡道多',n:['!建議搭登山纜車（Bergbahn）從老城上去，穿防滑好走的鞋。','?纜車與城堡的票價、營運時間待查。']},
+ bruchsal:{zh:'布魯赫薩爾宮',de:'Schloss Bruchsal',d:'巴洛克主教宮殿，以華麗的洛可可裝飾與入口樓梯廳聞名。',walk:'中',stairs:'樓梯廳是看點；內部是否有電梯待確認',n:[]},
+ colmar:{zh:'科爾馬',de:'Colmar',d:'亞爾薩斯的彩色老城，中世紀到文藝復興時期的民宅林立，運河區有「小威尼斯」之稱。',walk:'中',stairs:'石板路',n:[]},
+ riquewihr:{zh:'里屈埃維',de:'Riquewihr',d:'葡萄酒古村，石板窄巷兩旁是中世紀半木造房屋，是亞爾薩斯最受歡迎的小鎮之一。',walk:'中',stairs:'主街略有坡度、石板路',n:['?午餐／品酒餐廳建議事先訂位。']},
+ kaysersberg:{zh:'凱瑟斯貝格',de:'Kaysersberg',d:'亞爾薩斯小鎮，人道主義者史懷哲（Albert Schweitzer）的出生地。',walk:'少至中',navQ:'Kaysersberg, France',res:'',n:[]},
+ eguisheim:{zh:'埃吉桑',de:'Eguisheim',d:'街道呈同心圓排列的亞爾薩斯古村。',walk:'少至中',navQ:'Eguisheim, France',res:'',n:[]},
+ sommerbergbahn:{zh:'夏日山纜車',de:'Sommerbergbahn',d:'從 Bad Wildbad 市區搭纜車上到 Sommerberg 山頂（樹頂步道與吊橋所在）。',walk:'少（纜車上山）',n:['?營運時間與票價（2027 年 4 月）待查。']},
+ baumwipfel:{zh:'黑森林樹頂步道',de:'Baumwipfelpfad Schwarzwald',d:'穿梭在黑森林樹冠間的木製空中步道，全長約 1.25 公里，位於海拔約 750 公尺的 Sommerberg，終點是約 40 公尺高的螺旋觀景塔，可 360 度俯瞰山谷。',walk:'中（約 1.25 公里）',stairs:'坡度平緩、無障礙設計（行程備註）',n:['塔內另有大型管狀滑梯（需另費）。','?開放時間、票價與無障礙實況待查。']},
+ wildline:{zh:'WildLine 吊橋',de:'WildLine Hängebrücke',d:'全長約 380 公尺，懸在離地約 60 公尺的樹海上方，與樹頂步道只隔步行幾分鐘。',walk:'少',res:'baumwipfel',n:['!高空吊橋會晃動；懼高或身體不適者可留在橋頭等候。','?營運時間與票價待查。']},
+ herrenalb:{zh:'巴特黑倫阿爾布溫泉公園',de:'Bad Herrenalb – Kurpark',d:'黑森林裡的溫泉小鎮，公園沿溪流可踩水放鬆。',walk:'少',n:[]}
+};
+
+/* 外觀風格（sk）與「建築風格」文字（ar，皆已用 Wikipedia 查證）。未列入者用預設哥德式。 */
+const ARCH = {
+ schwetzingen:{sk:'baroque',ar:'巴洛克・洛可可；花園為法式轉英式'},
+ speyer:{sk:'romanesque',ar:'羅曼式（Romanik）'},
+ baden_baden:{sk:'classic',ar:'19 世紀溫泉建築（古典主義、新文藝復興）'},
+ lichtentaler:{sk:'nature',ar:'歷史公園・樹木園'},
+ lichtenthal:{sk:'gothic',ar:'哥德式修道院教堂（唱詩席 14 世紀）'},
+ trinkhalle:{sk:'classic',ar:'古典主義（1839–1842）'},
+ kurhaus:{sk:'classic',ar:'古典主義（Weinbrenner 設計）'},
+ caracalla:{sk:'classic',ar:'以羅馬皇帝卡拉卡拉命名的溫泉'},
+ friedrichsbad:{sk:'renaissance',ar:'新文藝復興式（1877）'},
+ rastatt:{sk:'baroque',ar:'巴洛克（1697 起建）'},
+ favorite:{sk:'baroque',ar:'巴洛克（1710 起建）'},
+ merkur:{sk:'nature'},geroldsau:{sk:'nature'},mummelsee:{sk:'nature'},sasbachwalden:{sk:'nature'},kappelrodeck:{sk:'nature'},oberkirch:{sk:'nature'},durbach:{sk:'nature'},
+ karlsruhe:{sk:'baroque',ar:'巴洛克宮殿（1715）'},
+ gengenbach:{sk:'fachwerk',ar:'半木造老城（德國半木造之路沿線）'},
+ maulbronn:{sk:'romanesque',ar:'羅曼式；前廊是德國最早的哥德式建築之一'},
+ bluehendes:{sk:'baroque',ar:'巴洛克宮殿花園（1954 年布置）'},
+ ludwigsburg:{sk:'baroque',ar:'巴洛克為主，兼有洛可可、古典主義'},
+ strasbourg:{sk:'gothic',ar:'哥德式為主，部分為羅曼式'},
+ petitefrance:{sk:'fachwerk',ar:'半木造（16 世紀起）'},
+ heidelberg:{sk:'renaissance',ar:'文藝復興式廢墟（阿爾卑斯山以北最重要的文藝復興建築之一）'},
+ bruchsal:{sk:'baroque',ar:'巴洛克・洛可可'},
+ colmar:{sk:'fachwerk',ar:'中世紀至文藝復興的民宅，含半木造'},
+ riquewihr:{sk:'fachwerk',ar:'中世紀半木造屋'},
+ kaysersberg:{sk:'fachwerk'},eguisheim:{sk:'fachwerk'},
+ sommerbergbahn:{sk:'nature'},baumwipfel:{sk:'nature',ar:'木構造空中步道'},wildline:{sk:'nature'},herrenalb:{sk:'nature'}
+};
+/* ================= 每日行程 =================
+   e＝長輩行程（長輩視角，不用第一人稱）；w＝我的工作行程；wx＝要顯示哪些地點的天氣（預設平地）。
+   DRV＝長輩行程裡對駕駛的稱呼（長輩都叫他「居本」；要改就改這一行）。 */
+const DRV = '居本';
+const DAYS = [
+ {date:'2027-04-09',
+  e:{t:'出發日',who:'全員',notes:['22:20 從桃園機場出發，隔天（4/10）早上抵達法蘭克福。']},
+  w:{tag:'出發',items:['22:20 桃園出發（去程）。']}},
+
+ {date:'2027-04-10',
+  e:{t:'抵達日・輕鬆開始',who:`全員同行，${DRV}開車`,drive:['法蘭克福機場 → 施韋青根：約 1 小時','施韋青根 → 巴登巴登民宿：約 1 小時','（選配）施韋青根 ↔ 施派爾：單程約 25 分鐘'],
+     stops:['schwetzingen'],opt:['speyer'],flower:'施韋青根宮殿花園的櫻花園（4/10 可能已接近尾聲）。',
+     notes:['!剛下夜間長途班機：以輕鬆為原則，累了就直接回民宿休息。','!民宿屋內有樓梯：行李多又很累時，請扶好扶手、慢慢上下。','施派爾看體力；不去的話可改 4/20 或 4/25（視回程航班時間）。','?民宿可入住的時間待確認；早到就先逛景點。','?櫻花園開花進度：出發前看官方 Blütenbarometer。']},
+  w:{tag:'取車・入住',nav:[{label:'導航：Sixt 法蘭克福機場 T1',q:'Sixt Frankfurt Airport Terminal 1'}],
+     items:['?抵達法蘭克福的時間待確認：Excel 有一格寫「06:50」，但日期欄是 4/24（可能是 4/10 的筆誤）。','取車：Sixt 法蘭克福機場 Terminal 1 租車中心，中大型房車（BMW 5 系列）。','!取車時辦：確認跨境申報（法國）、第二駕駛登記（會開車的長輩）、國際駕照需求。','FRA → 施韋青根 → 巴登巴登（約 2 小時加景點時間）。','入住 Airbnb：地址待提供。']}},
+
+ {date:'2027-04-11',
+  e:{t:'花季散步日',who:`全員同行，${DRV}開車`,drive:['民宿 → 市中心：開車或搭公車約 10 分鐘（房源資訊）'],
+     stops:['lichtentaler','lichtenthal','trinkhalle','kurhaus'],flower:'木蘭、櫻花、鬱金香（開到 5 月中）。水仙在復活節（2027/3/28）前後最盛，4/10 起可能已過。',
+     notes:['!週日德國多數商店不營業；餐廳與景點多有開。','全程以平路散步為主，累了就坐長椅，可隨時折返。']},
+  w:{tag:'休假',items:['休假，陪長輩（開車）。']}},
+
+ {date:'2027-04-12',
+  e:{t:'市區自助・調時差',who:`自助日（${DRV}白天上班）`,mode:'transit',drive:['民宿附近有公車站，到市中心約 10 分鐘（房源資訊）'],
+     stops:['baden_baden','caracalla','friedrichsbad'],flower:'Kurgarten 與 Lichtentaler Allee 的春花。',
+     notes:['溫泉二選一：Caracalla（穿泳衣）或 Friedrichsbad（傳統裸湯）。','?週一部分博物館休館，出發前查。']},
+  w:{tag:'上班',commute:true,items:[]}},
+
+ {date:'2027-04-13',
+  e:{t:'拉施塔特的兩座宮殿',who:`${DRV}早上開車送到 Rastatt；回程搭火車`,drive:['民宿 → Rastatt：開車約 20–30 分鐘','?回程搭區域火車回巴登巴登，車站到民宿另需公車或計程車'],
+     stops:['rastatt','favorite'],notes:['晚上可能有晚餐餐會（其中一位長輩會參加）；日期待定。']},
+  w:{tag:'上班',commute:true,items:['早上順路送長輩到 Rastatt（約 20–30 分鐘）。','晚上：晚餐餐會候選日（日期、地點待定）。']}},
+
+ {date:'2027-04-14',
+  e:{t:'市區自助日',who:`自助日（${DRV}出差柏林）`,mode:'transit',drive:['市區步行為主；Merkur 山需公車或計程車到纜車站（待查）'],
+     stops:['merkur'],opt:['geroldsau'],
+     notes:[`!${DRV} 4/14–4/15 出差柏林。緊急電話：歐盟統一 112（警察、消防、救護）。請把本頁的緊急資訊存在手機。`,'!屋內有樓梯：晚上起夜請開燈、扶扶手。','會開車的長輩：Geroldsau 瀑布可短程開過去。',`?車子是否留給會開車的長輩，取決於${DRV}去柏林的交通方式（待定）。`,'?Merkur 纜車 2027 年 4 月是否營運待查。']},
+  w:{tag:'柏林',berlin:true,items:['出發去柏林（住一晚）。','交通方案 A／B／C 待比較（見下）。']}},
+
+ {date:'2027-04-15',
+  e:{t:'卡爾斯魯爾一日',who:`搭火車自助（${DRV}晚上回來）`,mode:'transit',drive:['巴登巴登 → Karlsruhe：區域火車約 20–30 分鐘'],
+     stops:['karlsruhe'],notes:['!緊急電話：112。','?火車時刻請用 DB Navigator 或車站看板確認。']},
+  w:{tag:'柏林 → 回程',berlin:true,items:['柏林工作，晚上回到巴登巴登。']}},
+
+ {date:'2027-04-16',
+  e:{t:'休息日',who:`休息日（${DRV}白天上班）`,stops:[],opt:['baden_baden'],notes:['休息，或在市區散步。','晚上可能有晚餐餐會；日期待定。']},
+  w:{tag:'上班',commute:true,items:['晚上：晚餐餐會候選日（日期、地點待定）。']}},
+
+ {date:'2027-04-17',wx:['low','high'],
+  e:{t:'黑森林高地公路與果樹花海',who:`全員同行，${DRV}開車`,drive:['民宿 → Mummelsee（B500 高地公路）：約 45–60 分鐘','Mummelsee → Sasbachwalden：約 20–25 分鐘','Sasbachwalden → Kappelrodeck：約 10 分鐘','Kappelrodeck → 民宿：約 45 分鐘'],
+     stops:['mummelsee','sasbachwalden','kappelrodeck'],flower:'Ortenau 果樹花海：櫻桃、李、蘋果，約 4 月中；逐年不同。',
+     notes:['山上與山下溫差大：穿可層層增減的衣服。']},
+  w:{tag:'開車',items:['居本開車。路線見「長輩行程」。']}},
+
+ {date:'2027-04-18',
+  e:{t:'修道院與巴洛克花園',who:`全員同行，${DRV}開車`,drive:['民宿 → Maulbronn：約 1 小時','Maulbronn → Ludwigsburg：約 40 分鐘','Ludwigsburg → 民宿：約 1 小時 15 分'],
+     stops:['maulbronn','bluehendes','ludwigsburg'],flower:'Blühendes Barock 的春季鬱金香展。',
+     notes:['!車程與步行都較多：體力不佳可只選一處（建議保留 Ludwigsburg 的花園）。']},
+  w:{tag:'開車',items:['居本開車。單日車程合計約 2.5–3 小時。']}},
+
+ {date:'2027-04-19',
+  e:{t:'史特拉斯堡',who:`全員同行，${DRV}開車`,drive:['民宿 → Strasbourg：約 50 分鐘'],stops:['strasbourg','petitefrance'],
+     notes:['!進法國：需先向 Sixt 申報跨境。','!史特拉斯堡低排放區（ZFE）：外國車也需貼法國 Crit’Air 環保貼紙，要事先在官方網站 certificat-air.gouv.fr 訂購。','?市區停車：建議停外圍再搭電車（待查）。','?週一部分博物館休館。']},
+  w:{tag:'開車・跨境',items:['!跨境日：Sixt 申報＋Crit’Air 貼紙都要備妥。','進出法國的加油與停車請記在下方紀錄。']}},
+
+ {date:'2027-04-20',
+  e:{t:'海德堡',who:`全員同行，${DRV}開車`,drive:['民宿 → Heidelberg：約 1 小時 15 分','Heidelberg → Speyer（選配）：約 30 分鐘','Speyer → 民宿：約 1 小時 15 分'],
+     stops:['heidelberg'],opt:['bruchsal','speyer'],notes:['回程順路二選一：Bruchsal 宮（樓梯廳）或 Speyer 大教堂。','?週二各景點開放時間待查。']},
+  w:{tag:'開車',items:['居本開車。']}},
+
+ {date:'2027-04-21',
+  e:{t:'亞爾薩斯：科爾馬與里屈埃維（路線②）',who:`全員同行，${DRV}開車`,drive:['民宿 → Colmar：約 1 小時 30 分','Colmar → Riquewihr：約 20 分鐘','Riquewihr → 民宿：約 1 小時 45 分'],
+     stops:['colmar','riquewihr'],opt:['kaysersberg','eguisheim'],
+     notes:['!這天是目前行程中單程最長的一天（約 1.5 小時）；累了就取消下午的選配小鎮。','!進法國：需先向 Sixt 申報跨境。','路線①（國王城堡 Haut-Kœnigsbourg → Ribeauvillé → Riquewihr）為備案。','?去程若經過史特拉斯堡周邊，需確認該路段是否在 ZFE（Crit’Air）範圍。']},
+  w:{tag:'開車・跨境',items:['!跨境日：Sixt 申報＋Crit’Air（視路線）。']}},
+
+ {date:'2027-04-22',wx:['low','somm'],
+  e:{t:'樹頂步道與吊橋',who:`全員同行，${DRV}開車`,drive:['民宿 → Bad Wildbad：約 50 分鐘','Bad Wildbad → Bad Herrenalb：約 25 分鐘','Bad Herrenalb → 民宿：約 40 分鐘'],
+     stops:['sommerbergbahn','baumwipfel','wildline','herrenalb'],
+     notes:['上午樹頂步道＋吊橋（兩者只隔步行幾分鐘），下午到 Bad Herrenalb 溫泉公園踩水放鬆。','山上比山下冷：帶外套。']},
+  w:{tag:'開車',items:['居本開車。']}},
+
+ {date:'2027-04-23',
+  e:{t:'根根巴赫與果園',who:`全員同行，${DRV}開車`,drive:['民宿 → Gengenbach：約 50 分鐘','Gengenbach → Durbach：約 15 分鐘','Durbach → Oberkirch：約 15 分鐘','Oberkirch → 民宿：約 50 分鐘'],
+     stops:['gengenbach','durbach','oberkirch'],opt:['geroldsau'],flower:'Ortenau 果園的第二次賞花機會。傍晚 Geroldsau 的杜鵑 4 月底才開始，可能尚早。',
+     notes:[]},
+  w:{tag:'開車',items:['居本開車。']}},
+
+ {date:'2027-04-24',
+  e:{t:'彈性收尾日',who:'彈性安排',stops:[],
+     notes:['打包、巴登巴登補漏、餞別晚餐。','!明天要走：大件行李今天先集中到一樓（屋內有樓梯）。','備選（單程都較遠，體力與興致許可再考慮）：Mainau 花島約 2.5 小時、Basel 約 2 小時。']},
+  w:{tag:'彈性',items:['彈性日；可補加油、整理行李。']}},
+
+ {date:'2027-04-25',
+  e:{t:'返程日',who:`全員同行，${DRV}開車`,drive:['民宿 → 法蘭克福機場：約 2 小時'],stops:[],opt:['speyer'],
+     notes:['?航班起飛時間未定：它決定今天能不能順路去施派爾，或要提早出發。','還車地點：法蘭克福機場 Terminal 1 Sixt 租車中心。','退房前再檢查護照、藥品、充電器。']},
+  w:{tag:'返程',nav:[{label:'導航：Sixt 法蘭克福機場 T1',q:'Sixt Frankfurt Airport Terminal 1'}],items:['退房，開約 2 小時到 FRA。','?還車前是否要加滿油，依租約。','還車：Sixt FRA Terminal 1。']}}
+];
+
+const BERLIN_OPTS = [
+ {k:'A',t:'開車到斯圖加特機場（STR，約 1 小時 15 分）→ 飛 BER（約 1 小時 10 分）',c:'車停機場，長輩那兩天沒車。'},
+ {k:'B',t:'從巴登巴登火車站搭火車到 STR 或 FRA 機場轉機',c:'車留給長輩。'},
+ {k:'C',t:'火車全程：最快約 5 小時 44 分，轉兩次車，沒有直達',c:'最耗時。'}
+];
+const STATUS = [
+ {s:'done',t:'民宿屋內有樓梯',d:'已確認（2026-10-09）。已在長輩行程加上提醒；待問房東臥室樓層、有無一樓臥室＋衛浴、扶手。'},
+ {s:'later',t:'4/25 回程起飛時間',d:'延後確認；它決定最後一天能否順路施派爾。'},
+ {s:'later',t:'Airbnb 確切地址',d:'您之後提供；填入 TRIP.airbnb.address 後，所有導航自動以民宿為起點。'},
+ {s:'ask',t:'4/10 抵達法蘭克福時間',d:'Excel 有一格「06:50」但日期欄是 4/24，請確認是否為 4/10 的抵達時間。'},
+ {s:'draft',t:'第一週上班、柏林排 4/14–15',d:'目前採用草案，未經您確認。'},
+ {s:'draft',t:'晚餐餐會日期與地點',d:'暫列 4/13、4/16 為候選日。'},
+ {s:'draft',t:'刪除 Rothenburg/Dinkelsbühl、Basel、Monbachtal、Wildsee',d:'目前已排除（Basel 僅列 4/24 備選）；未經您確認。'},
+ {s:'todo',t:'柏林交通 A／B／C 比較',d:'需查實際班次與價格。'},
+ {s:'todo',t:'Merkur 纜車、Rastatt 皇宮開放日、各景點票價與餐廳',d:'尚未查證，頁面上皆標「待確認」。'},
+ {s:'todo',t:'KONUS 黑森林旅客卡',d:'問房東：這間 Airbnb 是否參加、能否發卡。'}
+];
+const STLAB = {done:'已確認',later:'延後',ask:'待您確認',draft:'草案暫用',todo:'待查'};
+const CHECK = [
+ ['sixt1','Sixt：申報跨境（法國）。瑞士目前不去，若恢復 Basel 才需處理 e-vignette。'],
+ ['sixt2','Sixt：登記第二駕駛（會開車的長輩，短程用）。'],
+ ['lic','駕照：確認德國、法國與 Sixt 對台灣駕照的要求（國際駕照／翻譯文件）。'],
+ ['critair','Crit’Air 貼紙：官網 certificat-air.gouv.fr 訂購，預留寄送時間（4/19 前到手）。'],
+ ['host1','房東：確切地址、入住方式。'],
+ ['host2','房東：臥室樓層、有無一樓臥室＋衛浴、樓梯扶手。'],
+ ['konus','房東：是否參加 KONUS，能否發旅客卡。'],
+ ['rep','出發前一週：看花況（官方花曆、Blütenbarometer）與各景點 2027 年開放資訊。']
+];
+const HOST_MSG = `Hello Jonathan,\n\nWe have booked your house for our stay in April 2027 (4 guests; three of us are aged 70–80). Could you please let us know:\n1) the exact address and check-in instructions;\n2) how many floors the house has, which bedrooms and bathrooms are on the ground floor, and whether the staircase has handrails;\n3) whether the house takes part in KONUS (Black Forest guest card for public transport) and can issue the card.\n\nThank you very much!`;
+
+/* ================= 工具函式 ================= */
+const $ = (s,r=document)=>r.querySelector(s);
+const esc = s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const WD = ['日','一','二','三','四','五','六'];
+const pad = n=>String(n).padStart(2,'0');
+const ymd = d=>`${d.getFullYear()}-${pad(d.getMonth()+1)}-${pad(d.getDate())}`;
+function dp(s){const [y,m,d]=s.split('-').map(Number);return {m,d,wd:WD[new Date(y,m-1,d).getDay()]};}
+const TODAY = ymd(new Date());
+const MAPS = 'https://www.google.com/maps/';
+const HOME = ()=>TRIP.airbnb.address||'';
+function store(k,v){try{if(v===undefined){return JSON.parse(localStorage.getItem(k));}localStorage.setItem(k,JSON.stringify(v));}catch(e){return null;}}
+function dirUrl({origin,dest,wps=[],mode='driving'}){
+  const p=new URLSearchParams({api:'1',destination:dest,travelmode:mode});
+  if(origin)p.set('origin',origin); if(wps.length)p.set('waypoints',wps.join('|'));
+  return MAPS+'dir/?'+p.toString();
+}
+function rec(id){const s=SPOTS[id]||{};const k=s.res===undefined?id:s.res;return (k&&RES[k])||{};}
+function tgt(id){const s=SPOTS[id];if(s.navQ)return s.navQ;const r=rec(id);return r.lat!=null?`${r.lat},${r.lon}`:`${s.zh} ${s.de}`;}
+function foodUrl(id){const s=SPOTS[id],r=rec(id);return r.lat!=null?`${MAPS}search/restaurant/@${r.lat},${r.lon},15z`:`${MAPS}search/${encodeURIComponent('restaurant near '+(s.navQ||s.de))}`;}
+function note(s){const c=s[0];const t=(c==='?'||c==='!')?s.slice(1):s;
+  return `<li class="${c==='!'?'warn':c==='?'?'tbc':''}">${c==='!'?'<b class="tag w">注意</b>':c==='?'?'<b class="tag q">待確認</b>':''}${esc(t)}</li>`;}
+const notes = a=>a&&a.length?`<ul class="notes">${a.map(note).join('')}</ul>`:'';
+
+/* ================= 外觀語彙（哥德式為基底，隨景點建築風格變化） =================
+   不變：按鈕、字級、版面骨架（長輩要認得出該按哪裡）。會變：徽記、頂端飾帶、線條色、標題色。 */
+const SK = {
+  gothic:     {n:'哥德式',        line:'#b98f7a', head:'#5e2d25'},
+  romanesque: {n:'羅曼式',        line:'#bf7f5e', head:'#6b3a22'},
+  baroque:    {n:'巴洛克・洛可可', line:'#c3a45f', head:'#5b3a52'},
+  renaissance:{n:'文藝復興式',    line:'#a58b7c', head:'#5a3d33'},
+  fachwerk:   {n:'半木造',        line:'#9a7650', head:'#6b4423'},
+  classic:    {n:'古典主義',      line:'#9fa9b8', head:'#2f3d52'},
+  nature:     {n:'自然・山林',    line:'#8fa68f', head:'#2f5a40'}
+};
+const TILE = {
+  gothic:{w:22,h:16,d:c=>`<g fill="none" stroke="${c}" stroke-width="1.2"><path d="M0,8H6.9M17.1,8H22"/><circle cx="9.6" cy="8" r="2.7"/><circle cx="14.4" cy="8" r="2.7"/><circle cx="12" cy="5.6" r="2.7"/><circle cx="12" cy="10.4" r="2.7"/></g>`},
+  romanesque:{w:18,h:16,d:c=>`<g fill="none" stroke="${c}" stroke-width="1.2"><path d="M1,15 V9 A8,8 0 0 1 17,9 V15 M0,15.4 H18"/></g>`},
+  baroque:{w:30,h:16,d:c=>`<g fill="none" stroke="${c}" stroke-width="1.2"><path d="M15,8 C11,2 3,3 4,9 C4.6,12.5 9,12.5 9,9 M15,8 C19,2 27,3 26,9 C25.4,12.5 21,12.5 21,9"/><circle cx="15" cy="8" r="1.2" fill="${c}"/></g>`},
+  renaissance:{w:18,h:16,d:c=>`<g fill="none" stroke="${c}" stroke-width="1.2"><path d="M9,1.5 L16,8 L9,14.5 L2,8Z M9,5 L12.4,8 L9,11 L5.6,8Z"/></g>`},
+  fachwerk:{w:22,h:16,d:c=>`<g fill="none" stroke="${c}" stroke-width="1.2"><path d="M1,2 H21 V14 H1Z M1,2 L21,14 M21,2 L1,14"/></g>`},
+  classic:{w:16,h:16,d:c=>`<g fill="none" stroke="${c}" stroke-width="1.2"><path d="M0,14.5 V3 H12.5 V11 H4.5 V7 H8.5"/></g>`},
+  nature:{w:26,h:16,d:c=>`<g fill="none" stroke="${c}" stroke-width="1.2"><path d="M0,8 Q6.5,2 13,8 T26,8"/><path d="M6.5,5 q1.5,-3.5 4,-3 q-0.5,3.5 -4,3Z M19.5,11 q1.5,3.5 4,3 q-0.5,-3.5 -4,-3Z"/></g>`}
+};
+const bandUrl=(sk,c)=>{const t=TILE[sk];const s=`<svg xmlns="http://www.w3.org/2000/svg" width="${t.w}" height="${t.h}" viewBox="0 0 ${t.w} ${t.h}">${t.d(c)}</svg>`;return `url('data:image/svg+xml,${encodeURIComponent(s)}')`;};
+const E100=(s,c,inner)=>`<svg width="${s}" height="${s}" viewBox="0 0 100 100" aria-hidden="true"><g fill="none" stroke="${c}" stroke-width="3" stroke-linejoin="round" stroke-linecap="round">${inner}</g></svg>`;
+const EMB = {
+  gothic:(c,s)=>`<svg width="${s}" height="${s}" viewBox="-50 -50 100 100" aria-hidden="true"><g fill="none" stroke="${c}" stroke-width="2.2"><circle r="47"/><circle r="38"/><circle r="11"/>${[...Array(12)].map((_,i)=>`<path transform="rotate(${i*30})" d="M0,-37 Q-8,-24 0,-13 Q8,-24 0,-37Z"/>`).join('')}${[...Array(12)].map((_,i)=>`<circle transform="rotate(${i*30+15}) translate(0,-30)" r="3.2"/>`).join('')}</g></svg>`,
+  romanesque:(c,s)=>E100(s,c,`<path d="M18,94 V52 A32,32 0 0 1 82,52 V94Z"/><path d="M30,94 V54 A20,20 0 0 1 70,54 V94"/><path d="M12,94 H88 M14,52 H22 M78,52 H86"/><circle cx="50" cy="52" r="5"/>`),
+  baroque:(c,s)=>E100(s,c,`<ellipse cx="50" cy="56" rx="30" ry="36"/><ellipse cx="50" cy="56" rx="23" ry="29"/><path d="M36,20 A14,14 0 0 1 64,20 M50,20 V8 M42,20 L38,10 M58,20 L62,10"/><path d="M20,44 C10,38 8,52 16,56 M80,44 C90,38 92,52 84,56"/>`),
+  renaissance:(c,s)=>E100(s,c,`<path d="M16,46 L50,20 L84,46Z"/><path d="M26,46 V94 M74,46 V94 M14,94 H86"/><path d="M38,94 V64 A12,12 0 0 1 62,64 V94"/><circle cx="50" cy="38" r="4"/>`),
+  fachwerk:(c,s)=>E100(s,c,`<path d="M8,50 L50,14 L92,50"/><path d="M18,50 V92 H82 V50"/><path d="M18,71 H82 M50,50 V92 M18,50 L50,71 L82,50 M18,71 L50,92 L82,71"/>`),
+  classic:(c,s)=>E100(s,c,`<path d="M12,38 L50,16 L88,38Z"/><path d="M14,44 H86 M24,44 V84 M40,44 V84 M60,44 V84 M76,44 V84 M12,90 H88 M17,84 H83"/>`),
+  nature:(c,s)=>E100(s,c,`<path d="M50,8 L32,34 H41 L24,58 H35 L16,84 H84 L65,58 H76 L59,34 H68Z"/><path d="M46,84 V94 H54 V84"/>`)
+};
+const emblem=(sk,c,s)=>EMB[sk](c,s);
+const skinOfSpot=id=>(ARCH[id]&&ARCH[id].sk)||'gothic';
+const skinOfDay=day=>{const e=day.e;const f=(e.stops||[])[0]||(e.opt||[])[0];return e.sk||(f?skinOfSpot(f):'gothic');};
+
+/* ================= 長輩行程 ================= */
+function photo(id){const r=rec(id);return r.img?`<figure class="ph"><img loading="lazy" decoding="async" referrerpolicy="no-referrer" src="${esc(r.img)}" alt="${esc(SPOTS[id].zh)}" onerror="this.closest('figure').remove()"></figure>`:'';}
+function stopHTML(id,day,optional){
+  const s=SPOTS[id],r=rec(id),mode=day.e.mode||'driving',sk=skinOfSpot(id),K=SK[sk],a=ARCH[id]||{};
+  const nav=dirUrl({origin:HOME(),dest:tgt(id),mode});
+  return `<article class="stop${optional?' opt':''}" style="--sl:${K.line};--sh:${K.head};--band:${bandUrl(sk,K.line)}">
+    <div class="band" aria-hidden="true"></div>
+    <div class="shead"><span class="emb">${emblem(sk,K.line,46)}</span><div><h4>${esc(s.zh)}${optional?' <span class="tag o">選配</span>':''}</h4><p class="de">${esc(s.de)}</p></div></div>
+    ${photo(id)}
+    <p>${esc(s.d)}</p>
+    ${a.ar?`<p class="meta"><b>建築風格</b>${esc(a.ar)}</p>`:''}
+    ${s.walk?`<p class="meta"><b>步行量</b>${esc(s.walk)}</p>`:''}
+    ${s.stairs?`<p class="meta"><b>階梯坡度</b>${esc(s.stairs)}</p>`:''}
+    ${notes(s.n)}
+    <div class="row"><a class="btn" href="${nav}" target="_blank" rel="noopener">${mode==='transit'?'大眾運輸路線':'導航到這裡'}</a>
+      <a class="btn alt" href="${foodUrl(id)}" target="_blank" rel="noopener">附近餐廳</a>
+      ${r.wiki?`<a class="lnk" href="${esc(r.wiki)}" target="_blank" rel="noopener">維基百科</a>`:''}</div>
+  </article>`;
+}
+function wholeDayBtn(day){
+  const ids=(day.e.stops||[]); if(ids.length<1)return '';
+  const mode=day.e.mode||'driving'; const t=ids.map(tgt);
+  let url,label;
+  if(HOME()){url=dirUrl({origin:HOME(),dest:HOME(),wps:t,mode});label='整天路線（從民宿出發、回民宿）';}
+  else{url=dirUrl({dest:t[t.length-1],wps:t.slice(0,-1),mode});label='整天路線（從目前位置出發）';}
+  return `<div class="row"><a class="btn" href="${url}" target="_blank" rel="noopener">${label}</a></div>`;
+}
+function wxLine(day){const locs=day.wx||['low'];return `<div class="wx">${locs.map(k=>`<span data-wx="${day.date}|${k}">天氣載入中…</span>`).join('')}</div>`;}
+function elderCard(day){
+  const p=dp(day.date),e=day.e,sk=skinOfDay(day),K=SK[sk];
+  return `<section class="card${day.date===TODAY?' today':''}" id="d-${day.date}" data-card="elder" style="--dl:${K.line};--dh:${K.head}">
+    <div class="dayhead"><span class="emb">${emblem(sk,K.line,60)}</span>
+      <div class="ttlbox"><div class="date">${p.m}/${p.d}（${p.wd}）${day.date===TODAY?' <span class="tag t">今天</span>':''}</div><div class="dtitle">${esc(e.t)}</div></div></div>
+    <p class="who">${esc(e.who||'')}</p>
+    ${wxLine(day)}
+    ${e.drive&&e.drive.length?`<div class="drive">${e.drive.map(x=>`<div>${x[0]==='?'?'<b class="tag q">待確認</b>'+esc(x.slice(1)):esc(x)}</div>`).join('')}</div>`:''}
+    ${e.flower?`<div class="flower"><b>花況</b>　${esc(e.flower)}</div>`:''}
+    ${notes(e.notes)}
+    ${wholeDayBtn(day)}
+    ${(e.stops||[]).map(id=>stopHTML(id,day,false)).join('')}
+    ${(e.opt||[]).map(id=>stopHTML(id,day,true)).join('')}
+  </section>`;
+}
+function lodgingCard(){
+  const a=TRIP.airbnb;
+  return `<details open><summary>住宿與緊急資訊</summary>
+    <ul class="notes">
+      <li>Airbnb 整棟房子（房東 Jonathan），全程同一間，院子有共用泳池，路邊免費停車。</li>
+      <li class="warn"><b class="tag w">注意</b>屋內有樓梯：上下樓請扶扶手；晚上起夜先開燈。</li>
+      <li class="${a.address?'':'tbc'}">${a.address?`<b>地址：</b>${esc(a.address)}`:'<b class="tag q">待確認</b>確切地址待提供。'}</li>
+      <li class="warn"><b class="tag w">緊急</b>歐盟統一緊急電話 <b>${TRIP.emergency}</b>（警察、消防、救護）。</li>
+      <li class="tbc"><b class="tag q">待填</b>${DRV}手機：＿＿＿＿＿＿　房東聯絡：＿＿＿＿＿＿</li>
+    </ul>
+    <div class="row"><a class="btn alt" href="${a.link}" target="_blank" rel="noopener">開啟 Airbnb 頁面</a></div>
+  </details>`;
+}
+
+/* ================= 我的工作行程 ================= */
+function commuteBtns(){
+  const w=TRIP.work.address,h=HOME();
+  return `<div class="row"><a class="btn" href="${dirUrl({origin:h,dest:w})}" target="_blank" rel="noopener">導航：${h?'民宿':'目前位置'} → 公司</a>
+    <a class="btn alt${h?'':'" aria-disabled="true'}" href="${h?dirUrl({origin:w,dest:h}):'#'}" target="_blank" rel="noopener">公司 → 民宿</a></div>
+    <ul class="notes"><li class="tbc"><b class="tag q">待確認</b>通勤時間待民宿地址確認後再算。公司：${esc(w)}</li></ul>`;
+}
+function berlinBlock(){
+  return `<div class="row"><a class="btn" href="${dirUrl({origin:HOME(),dest:TRIP.berlin.address,mode:'transit'})}" target="_blank" rel="noopener">大眾運輸：→ 柏林 ${esc(TRIP.berlin.address)}</a></div>
+   <table><tr><th>方案</th><th>內容</th><th>備註</th></tr>${BERLIN_OPTS.map(o=>`<tr><td><b>${o.k}</b></td><td>${esc(o.t)}</td><td>${esc(o.c)}</td></tr>`).join('')}</table>
+   <ul class="notes"><li class="tbc"><b class="tag q">待確認</b>班次與價格尚未查；Karlsruhe/Baden-Baden 機場（FKB）目前看不到穩定的柏林航班，需再查。</li></ul>`;
+}
+function workCard(day){
+  const p=dp(day.date),w=day.w;
+  return `<section class="card${day.date===TODAY?' today':''}" id="w-${day.date}" data-card="work">
+    <div class="dayhead"><span class="emb">${emblem('gothic',SK.gothic.line,46)}</span><span class="date">${p.m}/${p.d}（${p.wd}）</span><span class="tag t" style="font-size:.9rem">${esc(w.tag)}</span>${day.date===TODAY?'<span class="tag t">今天</span>':''}</div>
+    ${notes(w.items)}
+    ${(w.nav||[]).map(n=>`<div class="row"><a class="btn alt" href="${dirUrl({origin:HOME(),dest:n.q})}" target="_blank" rel="noopener">${esc(n.label)}</a></div>`).join('')}
+    ${w.commute?commuteBtns():''}${w.berlin?berlinBlock():''}
+  </section>`;
+}
+function statusTable(){
+  return `<table>${STATUS.map(x=>`<tr><td><span class="st ${x.s}">${STLAB[x.s]}</span></td><td><b>${esc(x.t)}</b><br>${esc(x.d)}</td></tr>`).join('')}</table>`;
+}
+function checklist(){
+  const st=store('baden27.chk')||{};
+  return CHECK.map(([id,t])=>`<label class="chk"><input type="checkbox" data-chk="${id}" ${st[id]?'checked':''}><span>${esc(t)}</span></label>`).join('');
+}
+function logUI(){
+  return `<div class="loggrid">
+    <select id="lgType" aria-label="類型"><option>跨境</option><option>加油</option><option>停車</option><option>過路費</option><option>其他</option></select>
+    <input id="lgAmt" inputmode="decimal" placeholder="金額（EUR，可空白）" aria-label="金額">
+    <input id="lgNote" class="full" placeholder="備註（地點、里程…）" aria-label="備註">
+    <button class="btn full" id="lgAdd">新增紀錄</button></div>
+    <div id="lgList"></div>
+    <div class="row"><button class="btn alt" id="lgCopy">複製全部</button><button class="btn alt" id="lgClear">清空</button></div>
+    <p class="note-small">紀錄只存在這支手機的瀏覽器裡，不會上傳。</p>`;
+}
+function renderLog(){
+  const a=store('baden27.log')||[];
+  const sum=a.reduce((t,x)=>t+(parseFloat(x.amt)||0),0);
+  $('#lgList').innerHTML=a.length?`<ul class="plain">${a.map((x,i)=>`<li>${esc(x.ts)}　<b>${esc(x.type)}</b>${x.amt?`　${esc(x.amt)} EUR`:''}　${esc(x.note||'')} <a href="#" data-del="${i}">刪除</a></li>`).join('')}</ul><p><b>金額合計：</b>${sum.toFixed(2)} EUR</p>`:'<p class="note-small">尚無紀錄。</p>';
+}
+function workPage(){
+  return `<h2>規劃狀態</h2><div class="card">${statusTable()}</div>
+    <details><summary>出發前檢查表</summary>${checklist()}</details>
+    <details><summary>給房東的訊息草稿（英文）</summary><pre style="white-space:pre-wrap;font:inherit">${esc(HOST_MSG)}</pre>
+      <div class="row"><button class="btn alt" id="copyHost">複製訊息</button></div></details>
+    <details><summary>跨境・加油・停車紀錄</summary>${logUI()}</details>
+    <h2>每日工作與車務</h2>${DAYS.map(workCard).join('')}`;
+}
+
+/* ================= 天氣（Open-Meteo） ================= */
+const WX = {fc:{},cl:{},now:{}};
+const WMO = c=>c===0?'☀️ 晴':c<=2?'🌤 晴時多雲':c===3?'☁️ 陰':c<=48?'🌫 霧':c<=57?'🌦 毛毛雨':c<=67?'🌧 雨':c<=77?'❄️ 雪':c<=82?'🌦 陣雨':c<=86?'🌨 陣雪':'⛈ 雷雨';
+function cget(k,h){const o=store(k);return o&&Date.now()-o.t<h*3600e3?o.v:null;}
+const cset=(k,v)=>store(k,{t:Date.now(),v});
+async function jget(u){const r=await fetch(u);if(!r.ok)throw new Error(r.status);return r.json();}
+const q=(l)=>`latitude=${l.lat}&longitude=${l.lon}${l.elev?`&elevation=${l.elev}`:''}&timezone=Europe%2FBerlin`;
+async function loadForecast(k){
+  const key=`baden27.fc.${k}`;let j=cget(key,1);
+  if(!j){j=await jget(`https://api.open-meteo.com/v1/forecast?${q(LOC[k])}&current=temperature_2m,weather_code&daily=weather_code,temperature_2m_max,temperature_2m_min,precipitation_probability_max&past_days=2&forecast_days=16`);cset(key,j);}
+  WX.now[k]={t:j.current.temperature_2m,c:j.current.weather_code};
+  WX.fc[k]={};j.daily.time.forEach((d,i)=>WX.fc[k][d]={c:j.daily.weather_code[i],tx:j.daily.temperature_2m_max[i],tn:j.daily.temperature_2m_min[i],pp:j.daily.precipitation_probability_max[i]});
+}
+async function loadClimate(k){
+  const key=`baden27.cl.${k}`;let agg=cget(key,24*30);
+  if(!agg){
+    const parts=await Promise.all(CLIM_YEARS.map(y=>jget(`https://archive-api.open-meteo.com/v1/archive?${q(LOC[k])}&start_date=${y}-04-09&end_date=${y}-04-26&daily=temperature_2m_max,temperature_2m_min,precipitation_sum`)));
+    const m={};
+    parts.forEach(j=>j.daily.time.forEach((d,i)=>{const md=d.slice(5);(m[md]=m[md]||{tx:[],tn:[],p:[]});
+      if(j.daily.temperature_2m_max[i]!=null){m[md].tx.push(j.daily.temperature_2m_max[i]);m[md].tn.push(j.daily.temperature_2m_min[i]);m[md].p.push(j.daily.precipitation_sum[i]||0);}}));
+    const av=a=>a.reduce((s,x)=>s+x,0)/a.length;agg={};
+    Object.keys(m).forEach(md=>{if(m[md].tx.length)agg[md]={tx:av(m[md].tx),tn:av(m[md].tn),p:av(m[md].p)};});
+    cset(key,agg);
+  }
+  WX.cl[k]=agg;
+}
+function wxText(date,k){
+  const f=WX.fc[k]&&WX.fc[k][date];
+  if(f)return `${LOC[k].label.split('（')[0]}｜預報 ${Math.round(f.tn)}–${Math.round(f.tx)}°C ${WMO(f.c)} 降雨機率 ${f.pp??'-'}%`;
+  const c=WX.cl[k]&&WX.cl[k][date.slice(5)];
+  if(c)return `${LOC[k].label.split('（')[0]}｜往年同期約 ${Math.round(c.tn)}–${Math.round(c.tx)}°C，日降雨約 ${c.p.toFixed(1)} mm`;
+  return null;
+}
+function paintWx(){
+  document.querySelectorAll('[data-wx]').forEach(el=>{const [d,k]=el.dataset.wx.split('|');const t=wxText(d,k);el.textContent=t||'天氣暫時無法取得';});
+  const box=$('#wxPanel');if(!box)return;
+  const days=DAYS.map(d=>d.date).filter(d=>d>='2027-04-10'&&d<='2027-04-25');
+  const mean=(k,f)=>{const v=days.map(d=>WX.cl[k]&&WX.cl[k][d.slice(5)]).filter(Boolean).map(x=>x[f]);return v.length?v.reduce((s,x)=>s+x,0)/v.length:null;};
+  const inFc=['low','high'].some(k=>WX.fc[k]&&days.some(d=>WX.fc[k][d]));
+  box.innerHTML=['low','high'].map(k=>{const n=WX.now[k],tx=mean(k,'tx'),tn=mean(k,'tn'),p=mean(k,'p');
+    return `<div class="wxbox"><b>${esc(LOC[k].label)}</b>
+      <div>現在：${n?`<span class="big">${Math.round(n.t)}°C</span> ${WMO(n.c)}`:'載入中…'}</div>
+      <div>4/10–4/25 往年平均：${tx!=null?`白天約 ${Math.round(tx)}°C、早晚約 ${Math.round(tn)}°C，日降雨約 ${p.toFixed(1)} mm`:'載入中…'}</div></div>`;}).join('')
+    +`<p class="note-small" style="grid-column:1/-1">${inFc?'行程日期已進入預報範圍：各日卡片顯示預報。':'預報最多只到約 16 天後；目前各日卡片顯示往年同期平均（取 '+CLIM_YEARS[0]+'–'+CLIM_YEARS[CLIM_YEARS.length-1]+' 年），進入 16 天內自動換成預報。'}</p>`;
+}
+async function loadWeather(){
+  const ks=['low','high','somm'];
+  await Promise.all(ks.map(k=>loadClimate(k).catch(()=>{})));
+  await Promise.all(ks.map(k=>loadForecast(k).catch(()=>{})));
+  paintWx();
+}
+
+/* ================= 頁面組裝 ================= */
+function elderPage(){
+  return `<h2>天氣</h2><div class="card"><div class="wxpanel" id="wxPanel"><p>載入中…</p></div></div>
+    ${lodgingCard()}${DAYS.map(elderCard).join('')}`;
+}
+function chips(tab){
+  $('#chips').innerHTML=DAYS.map(d=>{const p=dp(d.date);return `<a href="#${tab==='work'?'w':'d'}-${d.date}" class="${d.date===TODAY?'today':''}" data-jump="${d.date}">${p.m}/${p.d}<span>${p.wd}</span></a>`;}).join('');
+}
+function show(tab){
+  const work=tab==='work';
+  $('#tabElder').setAttribute('aria-selected',String(!work));$('#tabWork').setAttribute('aria-selected',String(work));
+  $('#app').innerHTML=work?workPage():elderPage();
+  chips(work?'work':'elder');
+  if(work){bindWork();} else {paintWx();}
+  try{history.replaceState(null,'','#'+(work?'work':'elder'));}catch(e){}
+  window.scrollTo(0,0);
+}
+function bindWork(){
+  document.querySelectorAll('[data-chk]').forEach(i=>i.addEventListener('change',()=>{const s=store('baden27.chk')||{};s[i.dataset.chk]=i.checked;store('baden27.chk',s);}));
+  $('#copyHost').addEventListener('click',()=>copy(HOST_MSG,$('#copyHost')));
+  renderLog();
+  $('#lgAdd').addEventListener('click',()=>{const a=store('baden27.log')||[];const n=new Date();
+    a.unshift({ts:`${n.getMonth()+1}/${n.getDate()} ${pad(n.getHours())}:${pad(n.getMinutes())}`,type:$('#lgType').value,amt:$('#lgAmt').value.trim(),note:$('#lgNote').value.trim()});
+    store('baden27.log',a);$('#lgAmt').value='';$('#lgNote').value='';renderLog();});
+  $('#lgList').addEventListener('click',ev=>{const d=ev.target.dataset&&ev.target.dataset.del;if(d===undefined)return;ev.preventDefault();const a=store('baden27.log')||[];a.splice(+d,1);store('baden27.log',a);renderLog();});
+  $('#lgCopy').addEventListener('click',()=>{const a=store('baden27.log')||[];copy(a.map(x=>`${x.ts}\t${x.type}\t${x.amt||''}\t${x.note||''}`).join('\n')||'（無紀錄）',$('#lgCopy'));});
+  $('#lgClear').addEventListener('click',()=>{if(confirm('確定清空所有紀錄？')){store('baden27.log',[]);renderLog();}});
+}
+async function copy(t,btn){const o=btn.textContent;try{await navigator.clipboard.writeText(t);btn.textContent='已複製';}catch(e){btn.textContent='複製失敗，請長按文字手動複製';}setTimeout(()=>btn.textContent=o,1800);}
+
+/* 字體大小 */
+const FS=[18,20,22,24,26,28];let fi=FS.indexOf(store('baden27.fs')||20);if(fi<0)fi=1;
+function applyFs(){document.documentElement.style.fontSize=FS[fi]+'px';store('baden27.fs',FS[fi]);}
+$('#fsUp').addEventListener('click',()=>{fi=Math.min(FS.length-1,fi+1);applyFs();});
+$('#fsDown').addEventListener('click',()=>{fi=Math.max(0,fi-1);applyFs();});
+applyFs();
+
+/* 公開網站（github.io）預設只給長輩看：隱藏「我的工作行程」。在網址後加 ?me 就能打開（並記住這支手機）。
+   注意：這只是介面上隱藏，工作資料仍在頁面原始碼裡，並非保密。 */
+const PUBLIC = /github\.io$/.test(location.hostname);
+const ME = (()=>{const q=/[?&]me(=|&|$)/.test(location.search);try{if(q)localStorage.setItem('baden27.me','1');return q||localStorage.getItem('baden27.me')==='1';}catch(e){return q;}})();
+const SHOW_WORK = !PUBLIC || ME;
+if(!SHOW_WORK){$('.tabs').classList.add('hidden');}
+$('#tabElder').addEventListener('click',()=>show('elder'));
+$('#tabWork').addEventListener('click',()=>show('work'));
+$('#chips').addEventListener('click',ev=>{const a=ev.target.closest('a[data-jump]');if(!a)return;ev.preventDefault();
+  const id=a.getAttribute('href').slice(1);const el=document.getElementById(id);if(el){const off=$('.tabs').offsetHeight+8;window.scrollTo({top:el.getBoundingClientRect().top+scrollY-off,behavior:'smooth'});}});
+$('#toTop').addEventListener('click',()=>{const c=$('#chips');window.scrollTo({top:c.getBoundingClientRect().top+scrollY-$('.tabs').offsetHeight-8,behavior:'smooth'});});
+addEventListener('scroll',()=>$('#toTop').classList.toggle('hidden',scrollY<500),{passive:true});
+$('#brandEmb').innerHTML=emblem('gothic',SK.gothic.line,48);
+$('#stamp').textContent='資料版本：2026-10-09 草案 v2（外觀：哥德式基底＋依景點建築風格變化；行程為草案，未經全部確認）。';
+
+show(location.hash==='#work'&&SHOW_WORK?'work':'elder');
+loadWeather();
+</script>
+</body>
+</html>
