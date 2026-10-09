@@ -140,6 +140,30 @@ table.ovt td{vertical-align:middle}
 table.ovt td:first-child{white-space:nowrap;font-weight:800;text-align:center;width:3.6rem}
 table.ovt a{color:var(--accent);text-decoration:none}
 table.ovt .mv-bar{margin-top:.2rem;height:7px}
+
+/* ---- 收納（摺疊） ---- */
+details>summary{list-style:none;display:flex;flex-wrap:nowrap;align-items:center;gap:.1rem .6rem}
+.sx{flex:1 1 0;min-width:0;display:flex;flex-wrap:wrap;align-items:baseline;gap:.05rem .6rem}
+details>summary::-webkit-details-marker{display:none}
+details>summary::after{content:"展開 ▾";margin-left:auto;padding-left:.6rem;font-family:"Noto Sans TC","Microsoft JhengHei",sans-serif;font-size:.8rem;font-weight:700;color:var(--accent);white-space:nowrap}
+details[open]>summary::after{content:"收合 ▴"}
+.sh{font-family:var(--serif);font-weight:800;color:var(--head);font-size:1.05rem}
+.ss{flex:1 1 9rem;font-family:"Noto Sans TC","Microsoft JhengHei",sans-serif;font-weight:500;font-size:.82rem;color:var(--muted);line-height:1.55}
+.ss .tag{margin:0 .3rem 0 0}
+.sl{display:block}
+details.sec{padding:0 .95rem;margin:.7rem 0}
+details.sec>summary{min-height:58px;padding:.35rem 0}
+details.sec[open]>summary{border-bottom:1px solid var(--line)}
+.sec-body{padding:.7rem 0 .9rem}
+.sec-body .ov{padding:0}
+details.fold{border:1px solid var(--dl,var(--line));box-shadow:none;background:var(--card);padding:0 .75rem;margin:.6rem 0}
+details.fold>summary{min-height:54px;padding:.3rem 0}
+details.fold[open]>summary{border-bottom:1px solid var(--line)}
+.fold-body{padding:.5rem 0 .7rem}
+details.move{background:var(--soft)}
+details.optstop{border:1px dashed var(--sl,var(--line));margin:.3rem 0 0}
+details.optstop>summary .shead{flex:1 1 0;min-width:0}
+details.more{border:1px dashed var(--sl,var(--line));margin:.5rem 0}
 </style>
 </head>
 <body>
@@ -453,23 +477,91 @@ const skinOfDay=day=>{const e=day.e;const f=(e.stops||[])[0]||(e.opt||[])[0];ret
 
 /* ================= 長輩行程 ================= */
 function photo(id){const r=rec(id);return r.img?`<figure class="ph"><img loading="lazy" decoding="async" referrerpolicy="no-referrer" src="${esc(r.img)}" alt="${esc(SPOTS[id].zh)}" onerror="this.closest('figure').remove()"></figure>`:'';}
+const foldCount = arr=>{let w=0,q=0;(arr||[]).forEach(s=>{if(s[0]==='!')w++;else if(s[0]==='?')q++;});return {n:(arr||[]).length,w,q};};
+const tagsFor = c=>`${c.w?`<span class="tag w">注意 ${c.w}</span>`:''}${c.q?`<span class="tag q">待確認 ${c.q}</span>`:''}`;
+function secHTML(id,title,sub,body){return `<details class="sec" id="sec-${id}"><summary><span class="sx"><span class="sh">${title}</span><span class="ss">${sub||''}</span></span></summary><div class="sec-body">${body}</div></details>`;}
+function notesFold(day){
+  const arr=day.e.notes||[]; if(!arr.length) return '';
+  const c=foldCount(arr);
+  return `<details class="fold dnotes"><summary><span class="sx"><span class="sh">注意事項與提醒</span><span class="ss">共 ${c.n} 項 ${tagsFor(c)}</span></span></summary><div class="fold-body">${notes(arr)}</div></details>`;
+}
 function stopHTML(id,day,optional){
   const s=SPOTS[id],r=rec(id),mode=day.e.mode||'driving',sk=skinOfSpot(id),K=SK[sk],a=ARCH[id]||{};
   const nav=dirUrl({origin:HOME(),dest:tgt(id),mode});
-  return `<article class="stop${optional?' opt':''}" style="--sl:${K.line};--sh:${K.head};--band:${bandUrl(sk,K.line)}">
-    <div class="band" aria-hidden="true"></div>
-    <div class="shead"><span class="emb">${emblem(sk,K.line,46)}</span><div><h4>${esc(s.zh)}${optional?' <span class="tag o">選配</span>':''}</h4><p class="de">${esc(s.de)}</p></div></div>
-    ${photo(id)}
+  const head=`<div class="shead"><span class="emb">${emblem(sk,K.line,46)}</span><div><h4>${esc(s.zh)}${optional?' <span class="tag o">選配</span>':''}</h4><p class="de">${esc(s.de)}</p></div></div>`;
+  const cnt=foldCount(s.n);
+  const more=(a.ar||(s.n&&s.n.length))?`<details class="fold more"><summary><span class="sx"><span class="sh">更多資訊</span><span class="ss">${a.ar?'建築風格 ':''}${tagsFor(cnt)}</span></span></summary><div class="fold-body">${a.ar?`<p class="meta"><b>建築風格</b>${esc(a.ar)}</p>`:''}${notes(s.n)}</div></details>`:'';
+  const inner=`${photo(id)}
     <p>${esc(s.d)}</p>
-    ${a.ar?`<p class="meta"><b>建築風格</b>${esc(a.ar)}</p>`:''}
     ${s.walk?`<p class="meta"><b>步行量</b>${esc(s.walk)}</p>`:''}
     ${s.stairs?`<p class="meta"><b>階梯坡度</b>${esc(s.stairs)}</p>`:''}
-    ${notes(s.n)}
+    ${more}
     <div class="row"><a class="btn" href="${nav}" target="_blank" rel="noopener">${mode==='transit'?'大眾運輸路線':'導航到這裡'}</a>
       <a class="btn alt" href="${foodUrl(id)}" target="_blank" rel="noopener">附近餐廳</a>
-      ${r.wiki?`<a class="lnk" href="${esc(r.wiki)}" target="_blank" rel="noopener">維基百科</a>`:''}</div>
+      ${r.wiki?`<a class="lnk" href="${esc(r.wiki)}" target="_blank" rel="noopener">維基百科</a>`:''}</div>`;
+  return `<article class="stop${optional?' opt':''}" style="--sl:${K.line};--sh:${K.head};--band:${bandUrl(sk,K.line)}">
+    <div class="band" aria-hidden="true"></div>
+    ${optional?`<details class="fold optstop"><summary>${head}</summary><div class="fold-body">${inner}</div></details>`:`${head}${inner}`}
   </article>`;
 }
+function elderCard(day){
+  const p=dp(day.date),e=day.e,sk=skinOfDay(day),K=SK[sk];
+  return `<section class="card${day.date===TODAY?' today':''}" id="d-${day.date}" data-card="elder" style="--dl:${K.line};--dh:${K.head}">
+    <div class="dayhead"><span class="emb">${emblem(sk,K.line,60)}</span>
+      <div class="ttlbox"><div class="date">${p.m}/${p.d}（${p.wd}）${day.date===TODAY?' <span class="tag t">今天</span>':''}</div><div class="dtitle">${esc(e.t)}</div></div></div>
+    <p class="who">${esc(e.who||'')}</p>
+    ${wxLine(day)}
+    ${e.flower?`<div class="flower"><b>花況</b>　${esc(e.flower)}</div>`:''}
+    ${movePanel(day)}
+    ${!hasPanel(day)&&e.drive&&e.drive.length?`<div class="drive">${e.drive.map(x=>`<div>${x[0]==='?'?'<b class="tag q">待確認</b>'+esc(x.slice(1)):esc(x)}</div>`).join('')}</div>`:''}
+    ${notesFold(day)}
+    ${wholeDayBtn(day)}
+    ${(e.stops||[]).map(id=>stopHTML(id,day,false)).join('')}
+    ${(e.opt||[]).map(id=>stopHTML(id,day,true)).join('')}
+  </section>`;
+}
+function lodgingCard(){
+  const a=TRIP.airbnb;
+  return secHTML('lodge','住宿與緊急資訊','屋內有樓梯・緊急電話 '+TRIP.emergency,`
+    <ul class="notes">
+      <li>Airbnb 整棟房子（房東 Jonathan），全程同一間，院子有共用泳池，路邊免費停車。</li>
+      <li class="warn"><b class="tag w">注意</b>屋內有樓梯：上下樓請扶扶手；晚上起夜先開燈。</li>
+      <li class="${a.address?'':'tbc'}">${a.address?`<b>地址：</b>${esc(a.address)}`:'<b class="tag q">待確認</b>確切地址待提供。'}</li>
+      <li class="warn"><b class="tag w">緊急</b>歐盟統一緊急電話 <b>${TRIP.emergency}</b>（警察、消防、救護）。</li>
+      <li class="tbc"><b class="tag q">待填</b>${DRV}手機：＿＿＿＿＿＿　房東聯絡：＿＿＿＿＿＿</li>
+    </ul>
+    <div class="row"><a class="btn alt" href="${a.link}" target="_blank" rel="noopener">開啟 Airbnb 頁面</a></div>`);
+}
+function movePanel(day){
+  if(!hasPanel(day)) return '';
+  const c=dayCalc(day), R=c.R, e=day.e, stops=e.stops||[], opts=e.opt||[];
+  const lines=(e.drive||[]);
+  const hand=lines.filter(x=>!R||!R.seq||x[0]==='?').map(x=>`<div>${x[0]==='?'?'<b class="tag q">待確認</b>'+esc(x.slice(1)):esc(x)}</div>`);
+  const legs=(R&&R.legs||[]).map(l=>`<div>${esc(nm(l.a))} → ${esc(nm(l.b))}　<b>${Math.round(l.km)} 公里・${fmtMin(l.min)}</b></div>`);
+  let driveRow, sumDrive;
+  if(c.drive){const trip=R.seq[0]==='home'&&R.seq[R.seq.length-1]==='home'?'來回合計':R.seq.length===2?'單程':'全程';const lv=lvDrive(R.min);
+    driveRow=`<div class="mv-row"><b>開車</b><span>${trip}約 <strong>${Math.round(R.km)}</strong> 公里・約 <strong>${fmtMin(R.min)}</strong></span><span class="lv ${lv[1]}">${lv[0]}</span><div class="mv-bar"><i style="width:${Math.min(100,R.min/240*100).toFixed(0)}%"></i></div></div>`;
+    sumDrive=`<span class="sl">開車 ${Math.round(R.km)} 公里・${fmtMin(R.min)} <span class="lv ${lv[1]}">${lv[0]}</span></span>`;}
+  else {driveRow=`<div class="mv-row"><b>開車</b><span>今天不用長途開車（搭公車、火車或步行）</span></div>`;sumDrive='<span class="sl">不開長途</span>';}
+  let walkRow, sumWalk='';
+  if(c.walk){const lv=lvWalk(c.walk[1]);
+    walkRow=`<div class="mv-row"><b>步行</b><span>合計約 <strong>${fmtKm(c.walk[0])}–${fmtKm(c.walk[1])}</strong> 公里・約 ${walkMin(c.walk[0])}–${walkMin(c.walk[1])} 分鐘</span><span class="lv ${lv[1]}">${lv[0]}</span><span class="tag q">預估</span><div class="mv-bar"><i style="width:${Math.min(100,c.walk[1]/6*100).toFixed(0)}%"></i></div></div>`;
+    sumWalk=`<span class="sl">步行 ${fmtKm(c.walk[0])}–${fmtKm(c.walk[1])} 公里 <span class="lv ${lv[1]}">${lv[0]}</span></span>`;}
+  else walkRow=`<div class="mv-row"><b>步行</b><span>以輕鬆散步為主</span></div>`;
+  const start=R&&R.seq?`<li><span class="mv-n start">起</span>${iconSvg(R.seq[0]==='fra'?'plane':'home',28)}<div><b>${R.seq[0]==='fra'?'法蘭克福機場':'民宿'}出發</b>${R.seq[0]==='fra'?'':'<br><span class="small">民宿地址未定，暫以巴登巴登市中心代替</span>'}</div></li>`:'';
+  const rows=stops.map((id,i)=>legendRow(i+1,id,false,R)).join('')+opts.map(id=>legendRow(0,id,true,R)).join('');
+  return `<details class="fold move"${day.date===TODAY?' open':''}><summary><span class="sx"><span class="sh">今日移動預覽</span><span class="ss">${sumDrive}${sumWalk}</span></span></summary><div class="fold-body">${driveRow}${walkRow}${mapHTML(day)}
+    ${legs.length||hand.length?`<div class="drive">${legs.join('')}${hand.join('')}</div>`:''}
+    <ol class="mv-legend">${start}${rows}</ol>
+    <p class="note-small">開車距離與時間用實際道路路線估算（不含停車、休息與塞車）；步行為預估（以每小時約 2.5 公里、含看風景計），依個人腳程增減。</p></div></details>`;
+}
+function elderPage(){
+  return `${secHTML('wx','天氣','<span id="wxSum">載入中…</span>','<div class="wxpanel" id="wxPanel"><p>載入中…</p></div>')}
+    ${secHTML('ov','每日移動量一覽','17 天的開車與步行負擔',overviewHTML())}
+    ${lodgingCard()}
+    ${DAYS.map(elderCard).join('')}`;
+}
+
 function wholeDayBtn(day){
   const ids=(day.e.stops||[]); if(ids.length<1)return '';
   const mode=day.e.mode||'driving'; const t=ids.map(tgt);
@@ -479,36 +571,6 @@ function wholeDayBtn(day){
   return `<div class="row"><a class="btn" href="${url}" target="_blank" rel="noopener">${label}</a></div>`;
 }
 function wxLine(day){const locs=day.wx||['low'];return `<div class="wx">${locs.map(k=>`<span data-wx="${day.date}|${k}">天氣載入中…</span>`).join('')}</div>`;}
-function elderCard(day){
-  const p=dp(day.date),e=day.e,sk=skinOfDay(day),K=SK[sk];
-  return `<section class="card${day.date===TODAY?' today':''}" id="d-${day.date}" data-card="elder" style="--dl:${K.line};--dh:${K.head}">
-    <div class="dayhead"><span class="emb">${emblem(sk,K.line,60)}</span>
-      <div class="ttlbox"><div class="date">${p.m}/${p.d}（${p.wd}）${day.date===TODAY?' <span class="tag t">今天</span>':''}</div><div class="dtitle">${esc(e.t)}</div></div></div>
-    <p class="who">${esc(e.who||'')}</p>
-    ${wxLine(day)}
-    ${movePanel(day)}
-    ${!hasPanel(day)&&e.drive&&e.drive.length?`<div class="drive">${e.drive.map(x=>`<div>${x[0]==='?'?'<b class="tag q">待確認</b>'+esc(x.slice(1)):esc(x)}</div>`).join('')}</div>`:''}
-    ${e.flower?`<div class="flower"><b>花況</b>　${esc(e.flower)}</div>`:''}
-    ${notes(e.notes)}
-    ${wholeDayBtn(day)}
-    ${(e.stops||[]).map(id=>stopHTML(id,day,false)).join('')}
-    ${(e.opt||[]).map(id=>stopHTML(id,day,true)).join('')}
-  </section>`;
-}
-function lodgingCard(){
-  const a=TRIP.airbnb;
-  return `<details open><summary>住宿與緊急資訊</summary>
-    <ul class="notes">
-      <li>Airbnb 整棟房子（房東 Jonathan），全程同一間，院子有共用泳池，路邊免費停車。</li>
-      <li class="warn"><b class="tag w">注意</b>屋內有樓梯：上下樓請扶扶手；晚上起夜先開燈。</li>
-      <li class="${a.address?'':'tbc'}">${a.address?`<b>地址：</b>${esc(a.address)}`:'<b class="tag q">待確認</b>確切地址待提供。'}</li>
-      <li class="warn"><b class="tag w">緊急</b>歐盟統一緊急電話 <b>${TRIP.emergency}</b>（警察、消防、救護）。</li>
-      <li class="tbc"><b class="tag q">待填</b>${DRV}手機：＿＿＿＿＿＿　房東聯絡：＿＿＿＿＿＿</li>
-    </ul>
-    <div class="row"><a class="btn alt" href="${a.link}" target="_blank" rel="noopener">開啟 Airbnb 頁面</a></div>
-  </details>`;
-}
-
 /* ================= 每日移動預覽：開車距離、路線示意圖、步行量 =================
    開車：ROUTES（OSRM 實際道路路線，建置時產生；起點暫以巴登巴登市中心代替民宿）。
    步行：SPOTS 的 wk（預估區間，公里）。有出處的另附 wn。 */
@@ -601,28 +663,6 @@ function legendRow(n,id,optional,R){
     else if(r) extra=`<br>從民宿短程往返約 ${Math.round(r.km)} 公里・${fmtMin(r.min)}`;}
   return `<li><span class="mv-n${optional?' opt':''}">${optional?'選':n}</span>${iconSvg(spotIcon(id),28)}<div><b>${esc(s.zh)}</b>${optional?' <span class="tag o">選配</span>':''}<br><span class="small">${walkTxt||'以參觀為主，步行很少'}${s.wn?`<br>${esc(s.wn)}`:''}${extra}</span></div></li>`;
 }
-function movePanel(day){
-  if(!hasPanel(day)) return '';
-  const c=dayCalc(day), R=c.R, e=day.e, stops=e.stops||[], opts=e.opt||[];
-  const sk=skinOfDay(day), K=SK[sk];
-  const lines=(e.drive||[]);
-  const hand=lines.filter(x=>!R||!R.seq||x[0]==='?').map(x=>`<div>${x[0]==='?'?'<b class="tag q">待確認</b>'+esc(x.slice(1)):esc(x)}</div>`);
-  const legs=(R&&R.legs||[]).map(l=>`<div>${esc(nm(l.a))} → ${esc(nm(l.b))}　<b>${Math.round(l.km)} 公里・${fmtMin(l.min)}</b></div>`);
-  let driveRow;
-  if(c.drive){const trip=R.seq[0]==='home'&&R.seq[R.seq.length-1]==='home'?'來回合計':R.seq.length===2?'單程':'全程';const lv=lvDrive(R.min);
-    driveRow=`<div class="mv-row"><b>開車</b><span>${trip}約 <strong>${Math.round(R.km)}</strong> 公里・約 <strong>${fmtMin(R.min)}</strong></span><span class="lv ${lv[1]}">${lv[0]}</span><div class="mv-bar"><i style="width:${Math.min(100,R.min/240*100).toFixed(0)}%"></i></div></div>`;}
-  else driveRow=`<div class="mv-row"><b>開車</b><span>今天不用長途開車（搭公車、火車或步行）</span></div>`;
-  let walkRow;
-  if(c.walk){const lv=lvWalk(c.walk[1]);
-    walkRow=`<div class="mv-row"><b>步行</b><span>合計約 <strong>${fmtKm(c.walk[0])}–${fmtKm(c.walk[1])}</strong> 公里・約 ${walkMin(c.walk[0])}–${walkMin(c.walk[1])} 分鐘</span><span class="lv ${lv[1]}">${lv[0]}</span><span class="tag q">預估</span><div class="mv-bar"><i style="width:${Math.min(100,c.walk[1]/6*100).toFixed(0)}%"></i></div></div>`;}
-  else walkRow=`<div class="mv-row"><b>步行</b><span>以輕鬆散步為主</span></div>`;
-  const start=R&&R.seq?`<li><span class="mv-n start">起</span>${iconSvg(R.seq[0]==='fra'?'plane':'home',28)}<div><b>${R.seq[0]==='fra'?'法蘭克福機場':'民宿'}出發</b>${R.seq[0]==='fra'?'':'<br><span class="small">民宿地址未定，暫以巴登巴登市中心代替</span>'}</div></li>`:'';
-  const rows=stops.map((id,i)=>legendRow(i+1,id,false,R)).join('')+opts.map(id=>legendRow(0,id,true,R)).join('');
-  return `<section class="move" aria-label="今日移動預覽"><h3>今日移動預覽</h3>${driveRow}${walkRow}${mapHTML(day)}
-    ${legs.length||hand.length?`<div class="drive">${legs.join('')}${hand.join('')}</div>`:''}
-    <ol class="mv-legend">${start}${rows}</ol>
-    <p class="note-small">開車距離與時間用實際道路路線估算（不含停車、休息與塞車）；步行為預估（以每小時約 2.5 公里、含看風景計），依個人腳程增減。</p></section>`;
-}
 function overviewHTML(){
   const rows=DAYS.map(day=>{
     const p=dp(day.date), c=dayCalc(day);
@@ -630,7 +670,7 @@ function overviewHTML(){
     const w=c.walk?(()=>{const lv=lvWalk(c.walk[1]);return `${fmtKm(c.walk[0])}–${fmtKm(c.walk[1])} 公里 <span class="lv ${lv[1]}">${lv[0]}</span><div class="mv-bar"><i style="width:${Math.min(100,c.walk[1]/6*100).toFixed(0)}%"></i></div>`;})():'<span class="dim">輕鬆散步</span>';
     return `<tr><td><a href="#d-${day.date}" data-jump="${day.date}">${p.m}/${p.d}<br><span class="dim">${p.wd}</span></a></td><td>${d}</td><td>${w}</td></tr>`;
   }).join('');
-  return `<div class="card ov"><table class="ovt"><tr><th>日期</th><th>開車（全程）</th><th>步行（預估）</th></tr>${rows}</table>
+  return `<div class="ov"><table class="ovt"><tr><th>日期</th><th>開車（全程）</th><th>步行（預估）</th></tr>${rows}</table>
     <p class="note-small">開車用實際道路路線估算，起點暫以巴登巴登市中心代替民宿（地址確定後更新）；步行為預估。「偏長／偏多」只是提醒，行程隨時可以縮短。</p></div>`;
 }
 
@@ -678,7 +718,7 @@ function renderLog(){
   $('#lgList').innerHTML=a.length?`<ul class="plain">${a.map((x,i)=>`<li>${esc(x.ts)}　<b>${esc(x.type)}</b>${x.amt?`　${esc(x.amt)} EUR`:''}　${esc(x.note||'')} <a href="#" data-del="${i}">刪除</a></li>`).join('')}</ul><p><b>金額合計：</b>${sum.toFixed(2)} EUR</p>`:'<p class="note-small">尚無紀錄。</p>';
 }
 function workPage(){
-  return `<h2>規劃狀態</h2><div class="card">${statusTable()}</div>
+  return `${secHTML('st','規劃狀態','待確認事項與進度',statusTable())}
     <details><summary>出發前檢查表</summary>${checklist()}</details>
     <details><summary>給房東的訊息草稿（英文）</summary><pre style="white-space:pre-wrap;font:inherit">${esc(HOST_MSG)}</pre>
       <div class="row"><button class="btn alt" id="copyHost">複製訊息</button></div></details>
@@ -721,6 +761,7 @@ function wxText(date,k){
 }
 function paintWx(){
   document.querySelectorAll('[data-wx]').forEach(el=>{const [d,k]=el.dataset.wx.split('|');const t=wxText(d,k);el.textContent=t||'天氣暫時無法取得';});
+  const sm=$('#wxSum');if(sm){const n=WX.now.low,h=WX.now.high;sm.textContent=n?`巴登巴登現在 ${Math.round(n.t)}°C ${WMO(n.c)}${h?`　高地 ${Math.round(h.t)}°C`:''}`:'載入中…';}
   const box=$('#wxPanel');if(!box)return;
   const days=DAYS.map(d=>d.date).filter(d=>d>='2027-04-10'&&d<='2027-04-25');
   const mean=(k,f)=>{const v=days.map(d=>WX.cl[k]&&WX.cl[k][d.slice(5)]).filter(Boolean).map(x=>x[f]);return v.length?v.reduce((s,x)=>s+x,0)/v.length:null;};
@@ -739,11 +780,6 @@ async function loadWeather(){
 }
 
 /* ================= 頁面組裝 ================= */
-function elderPage(){
-  return `<h2>天氣</h2><div class="card"><div class="wxpanel" id="wxPanel"><p>載入中…</p></div></div>
-    <h2>每日移動量一覽</h2>${overviewHTML()}
-    ${lodgingCard()}${DAYS.map(elderCard).join('')}`;
-}
 function chips(tab){
   $('#chips').innerHTML=DAYS.map(d=>{const p=dp(d.date);return `<a href="#${tab==='work'?'w':'d'}-${d.date}" class="${d.date===TODAY?'today':''}" data-jump="${d.date}">${p.m}/${p.d}<span>${p.wd}</span></a>`;}).join('');
 }
@@ -789,7 +825,7 @@ $('#chips').addEventListener('click',ev=>{const a=ev.target.closest('a[data-jump
 $('#toTop').addEventListener('click',()=>{const c=$('#chips');window.scrollTo({top:c.getBoundingClientRect().top+scrollY-$('.tabs').offsetHeight-8,behavior:'smooth'});});
 addEventListener('scroll',()=>$('#toTop').classList.toggle('hidden',scrollY<500),{passive:true});
 $('#brandEmb').innerHTML=emblem('gothic',SK.gothic.line,48);
-$('#stamp').textContent='資料版本：2026-10-09 草案 v3（新增每日移動預覽；外觀：哥德式基底＋依景點建築風格變化；行程為草案，未經全部確認）。';
+$('#stamp').textContent='資料版本：2026-10-09 草案 v4（章節收納；新增每日移動預覽；外觀：哥德式基底＋依景點建築風格變化；行程為草案，未經全部確認）。';
 
 show(location.hash==='#work'&&SHOW_WORK?'work':'elder');
 loadWeather();
